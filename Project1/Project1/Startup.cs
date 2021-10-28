@@ -11,6 +11,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Project1.Data;
 using Project1.Models;
+using Project1.Services;
+using System;
+using System.Net.Http;
 
 namespace Project1
 {
@@ -26,6 +29,12 @@ namespace Project1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var client = new HttpClient
+            {
+                BaseAddress = new Uri("https://api.spoonacular.com/recipes/findByIngredients?apiKey=fa94bed73ee04f939a6b76d41a7a2a2c&ingredients=apples,+flour,+sugar&number=5")
+            };
+
+            services.AddTransient<RecipesClient>();
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
