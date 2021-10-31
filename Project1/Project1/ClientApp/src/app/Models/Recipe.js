@@ -1,11 +1,23 @@
 "use strict";
+////export class Recipe {
+////  id: number;
+////  title: string;
+////  image: string;
+////  imageType: string;
+////  usedIngredientCount: number;
+////}
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Recipe = void 0;
+exports.SedIngredient = exports.Recipe = void 0;
 var Recipe = /** @class */ (function () {
     function Recipe() {
     }
     return Recipe;
 }());
 exports.Recipe = Recipe;
-//made up recipe name takes place of model
+var SedIngredient = /** @class */ (function () {
+    function SedIngredient() {
+    }
+    return SedIngredient;
+}());
+exports.SedIngredient = SedIngredient;
 //# sourceMappingURL=Recipe.js.map

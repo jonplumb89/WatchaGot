@@ -13,6 +13,7 @@ import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { RecipeComponent } from './recipe/recipe.component';
+import { RecipesService } from '../recipes.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { RecipeComponent } from './recipe/recipe.component';
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
     ])
   ],
-  providers: [
+  providers: [RecipesService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
