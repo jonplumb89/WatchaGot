@@ -21,7 +21,7 @@
 <hr />
 
 <tbody class="recList" *ngIf="recipes">
-  <tr><h2><u>Recipie Results: </u></h2></tr>
+  <tr><h2><u>Recipe Results: </u></h2></tr>
   <tr *ngFor="let recipe of recipes" (click)="getRecipe(recipe.id)" style="display:block;">
     <td>{{recipe.title}}</td>
 
@@ -51,7 +51,6 @@
       </span>
     </td>
 
-    <td>{{recipe.id}}</td>
 
   </tr>
 </tbody>

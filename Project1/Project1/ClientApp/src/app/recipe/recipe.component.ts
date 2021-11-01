@@ -22,10 +22,6 @@ export class RecipeComponent implements OnInit {
     return this.sanatizer.bypassSecurityTrustResourceUrl(this.sourceUrl);
   }
 
-  recipes: Recipe;
-
-  constructor(private recipeService: RecipesService) { this.recipeService = recipeService }
-
 
   constructor(private recipeService: RecipesService, private sanatizer: DomSanitizer) {
     this.recipeService = recipeService
@@ -43,7 +39,7 @@ export class RecipeComponent implements OnInit {
 
   submitList() {
     let meow = this.foods.join(",");
-    let url = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=3ad1ee3c2ad5442fbe2e4a7b72183b78&number=10";
+    let url = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=3ad1ee3c2ad5442fbe2e4a7b72183b78&number=30";
     meow = "&ingredients=" + meow;
     this.recipeService.getRecipies(url + meow).subscribe(data => {
       this.recipes = data;
