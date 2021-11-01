@@ -35,6 +35,7 @@ import { FavoritesComponent } from './favorites/favorites.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
+      { path: 'MyFavoriteRecipes', component: FavoritesComponent, canActivate: [AuthorizeGuard] },
     ])
   ],
   providers: [RecipesService,
