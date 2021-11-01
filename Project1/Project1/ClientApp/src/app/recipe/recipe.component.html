@@ -24,6 +24,7 @@
   <tr><h2><u>Recipie Results: </u></h2></tr>
   <tr *ngFor="let recipe of recipes" (click)="getRecipe(recipe.id)" style="display:block;">
     <td>{{recipe.title}}</td>
+
   </tr>
 </tbody>
 
@@ -49,5 +50,8 @@
         {{obj.original}}
       </span>
     </td>
+
+    <td>{{recipe.id}}</td>
+
   </tr>
 </tbody>

@@ -17,15 +17,22 @@ export class RecipeComponent implements OnInit {
   extendIngreds: RecipeInfo["extendedIngredients"];
   in_food: any;
 
+
   get sanSourceUrl() {
     return this.sanatizer.bypassSecurityTrustResourceUrl(this.sourceUrl);
   }
+
+  recipes: Recipe;
+
+  constructor(private recipeService: RecipesService) { this.recipeService = recipeService }
+
 
   constructor(private recipeService: RecipesService, private sanatizer: DomSanitizer) {
     this.recipeService = recipeService
   }
 
   ngOnInit() {
+
   }
 
  bang(food: string) {
@@ -59,5 +66,10 @@ export class RecipeComponent implements OnInit {
     if (index > -1) {
       this.foods.splice(index, 1);
     }
+
+    this.recipeService.getRecipeDetails()
+      .subscribe(result => {
+        this.recipes = result;
+      })
   }
 }

@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
@@ -14,6 +13,8 @@ import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { RecipeComponent } from './recipe/recipe.component';
 import { RecipesService } from '../recipes.service';
+import { FavoritesComponent } from './favorites/favorites.component';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { RecipesService } from '../recipes.service';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    RecipeComponent
+    RecipeComponent,
+    FavoritesComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
