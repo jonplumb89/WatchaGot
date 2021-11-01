@@ -1,9 +1,25 @@
+////export class Recipe {
+////  id: number;
+////  title: string;
+////  image: string;
+////  imageType: string;
+////  usedIngredientCount: number;
+////}
+
 export class Recipe {
   id: number;
-  title: string;
   image: string;
-  imageType: string;
+  likes: number;
+  missedIngredientCount: number;
+  missedIngredients: SedIngredient[];
+  title: string;
+  usedIngredients: SedIngredient[];
+  unusedIngredients: any[];
   usedIngredientCount: number;
+  imageType: string;
+}
+
+export class SedIngredient {
   missedIngredientCount: number;
   missedIngredients: SedIngredient[];
   usedIngredients: SedIngredient[];
@@ -29,4 +45,6 @@ export interface SedIngredient {
 }
 
 
+
 //made up recipe name takes place of model
+

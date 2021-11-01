@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
@@ -13,7 +12,9 @@ import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { RecipeComponent } from './recipe/recipe.component';
+import { RecipesService } from '../recipes.service';
 import { FavoritesComponent } from './favorites/favorites.component';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { FavoritesComponent } from './favorites/favorites.component';
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
     ])
   ],
-  providers: [
+  providers: [RecipesService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

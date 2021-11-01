@@ -19,7 +19,7 @@ namespace Project1.Services
         {
             try
             {
-                var result = await httpclient.GetAsync("https://api.spoonacular.com/recipes/findByIngredients?apiKey=fa94bed73ee04f939a6b76d41a7a2a2c&ingredients=apples,+flour,+sugar&number=5");
+                var result = await httpclient.GetAsync("https://api.spoonacular.com/recipes/findByIngredients?apiKey=fa94bed73ee04f939a6b76d41a7a2a2c&ingredients=scallops,onions,pepper&number=2");
                 var json = await result.Content.ReadAsStringAsync();
                 return json;
             }
@@ -29,6 +29,11 @@ namespace Project1.Services
                 throw;
             }
 
+        }
+
+        public async Task<string> SearchRecipe()
+        {
+            return null;
         }
 
 

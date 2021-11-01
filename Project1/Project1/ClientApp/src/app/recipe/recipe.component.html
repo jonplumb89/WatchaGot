@@ -1,8 +1,57 @@
-<p>Our Recipes</p>
+<span class="meow">
+  <div class="recSearch">
+    <h2>Whatcha Got Homie:</h2>
+    <input (keyup.enter)="bang(thing.value)" [(ngModel)]="in_food" type="text" #thing class="myBox" />
+    <button (click)="bang(thing.value)" class="myButt">Add</button><br />
+  </div>
+</span>
 
 <tbody>
-  <tr *ngFor="let recipe of recipes">
+  <tr *ngFor="let food of foods; let i = index" class="food">
+    <td class="food"><button (click)="delete(food)">X</button>{{food}}</td>
+  </tr>
+</tbody>
+<br />
+
+<div class="sButts">
+  <button (click)="submitList()" class="sButts">submit</button>
+</div>
+<br />
+
+<hr />
+
+<tbody class="recList" *ngIf="recipes">
+  <tr><h2><u>Recipie Results: </u></h2></tr>
+  <tr *ngFor="let recipe of recipes" (click)="getRecipe(recipe.id)" style="display:block;">
     <td>{{recipe.title}}</td>
+
+  </tr>
+</tbody>
+
+<tbody style="display:block;">
+  <tr (click)="getRecipe(recipe.id)"></tr>
+</tbody>
+<hr />
+
+<span *ngIf="recipeInfos">
+  <h2><u>Recipie Result</u></h2>
+</span>
+
+<tbody *ngIf="recipeInfos">
+  <tr>
+    <td> {{recipeInfos.title}}</td>
+  </tr>
+  <tr *ngFor="let obj of extendIngreds; let i = index">
+    <td class="ingreds">
+      <span *ngIf="obj.aisle == 'Spices and Seasonings'">
+        {{obj.name}}
+      </span>
+      <span *ngIf="obj.aisle != 'Spices and Seasonings'">
+        {{obj.original}}
+      </span>
+    </td>
+
     <td>{{recipe.id}}</td>
+
   </tr>
 </tbody>
