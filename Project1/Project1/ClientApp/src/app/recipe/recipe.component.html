@@ -7,7 +7,7 @@
 </span>
 
 <tbody>
-  <tr *ngFor="let food of foods; let i = index" class="food">
+  <tr *ngFor="let food of foods; let i = index" class="foods">
     <td class="food"><button (click)="delete(food)">X</button>{{food}}</td>
   </tr>
 </tbody>
@@ -17,16 +17,30 @@
   <button (click)="submitList()" class="sButts">submit</button>
 </div>
 <br />
+<p>How many recipes you want:</p>
+<input list="amount" type="text" [(ngModel)]="sAmount">
+<datalist id="amount">
+  <option value="10">
+  <option value="20">
+  <option value="30">
+  <option value="40">
+  <option value="50">
+</datalist>
+
+
 
 <hr />
 
-<tbody class="recList" *ngIf="recipes">
-  <tr><h2><u>Recipe Results: </u></h2></tr>
-  <tr *ngFor="let recipe of recipes" (click)="getRecipe(recipe.id)" style="display:block;">
-    <td>{{recipe.title}}</td>
-
-  </tr>
-</tbody>
+  <tbody class="recList" *ngIf="recipes">
+    <tr><h2><u>Recipie Results: </u></h2></tr>
+    <tr *ngFor="let recipe of recipes; let i = index" (click)="getRecipe(recipe.id)">
+      <td class="resItem">
+        <u>{{recipe.title}}</u>
+        <br />
+        <hr />
+        missed ingredients: {{recipe.missedIngredientCount}}
+      </td>
+  </tbody>
 
 <tbody style="display:block;">
   <tr (click)="getRecipe(recipe.id)"></tr>
@@ -39,18 +53,27 @@
 
 <tbody *ngIf="recipeInfos">
   <tr>
+    <span>Title: </span>
     <td> {{recipeInfos.title}}</td>
   </tr>
+
   <tr *ngFor="let obj of extendIngreds; let i = index">
+    <td></td>
     <td class="ingreds">
       <span *ngIf="obj.aisle == 'Spices and Seasonings'">
-        {{obj.name}}
+        -{{obj.name}}
       </span>
       <span *ngIf="obj.aisle != 'Spices and Seasonings'">
-        {{obj.original}}
+        -{{obj.original}}
       </span>
     </td>
-
-
   </tr>
 </tbody>
+
+<tbody *ngIf="recipeInfos">
+  <tr>
+    Instructions: {{doit}}
+  </tr>
+</tbody>
+
+
