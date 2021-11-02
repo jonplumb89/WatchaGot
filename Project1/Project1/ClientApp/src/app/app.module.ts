@@ -14,6 +14,7 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
 import { RecipeComponent } from './recipe/recipe.component';
 import { RecipesService } from '../recipes.service';
 import { FavoritesComponent } from './favorites/favorites.component';
+import { UserComponent } from './user/user.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { FavoritesComponent } from './favorites/favorites.component';
     CounterComponent,
     FetchDataComponent,
     RecipeComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
