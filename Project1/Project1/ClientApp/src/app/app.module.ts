@@ -14,7 +14,11 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
 import { RecipeComponent } from './recipe/recipe.component';
 import { RecipesService } from '../recipes.service';
 import { FavoritesComponent } from './favorites/favorites.component';
+
 import { UserComponent } from './user/user.component';
+
+import { MyrecipesComponent } from './myrecipes/myrecipes.component';
+
 
 
 @NgModule({
@@ -26,7 +30,11 @@ import { UserComponent } from './user/user.component';
     FetchDataComponent,
     RecipeComponent,
     FavoritesComponent,
-    UserComponent
+
+    UserComponent,
+
+    MyrecipesComponent
+
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -38,6 +46,7 @@ import { UserComponent } from './user/user.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
       { path: 'MyFavoriteRecipes', component: FavoritesComponent, canActivate: [AuthorizeGuard] },
+      { path: 'MyRecipes', component: MyrecipesComponent, canActivate: [AuthorizeGuard] },
     ])
   ],
   providers: [RecipesService,
