@@ -17,6 +17,10 @@
   border-radius: 10px;
 }
 
+  .resItem:hover {
+    cursor: pointer;
+  }
+
 .recList {
 }
 .recipeBox {
