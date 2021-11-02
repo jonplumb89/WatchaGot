@@ -1,8 +1,22 @@
-<!--<tbody>
-  <tr *ngFor="let favorite of favorites">
-    <td>{{ favorite.title }}</td>
-    <td>{{ favorite.instructions }}</td>   
-  </tr>
-</tbody>-->
-
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="favorites">
+  <thead>
+    <tr>
+      <th><b>Recipe Title</b></th>
+      <th><b>Time</b></th>
+      <th><b>Summary</b></th>
+      <th><b>Servings</b></th>
+      <th><b>Instructions</b></th>
+      <th><b>Ingredients</b></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let favorite of favorites">
+      <td>{{ favorite.title }}</td>
+      <td>{{ favorite.readyInMinutes }}</td>
+      <td>{{ favorite.summary }}</td>
+      <td>{{ favorite.servings }}</td>
+      <td>{{ favorite.instructions }}</td>
+      <td>{{ favorite.ingredients }}</td>
+    </tr>
+  </tbody>
 
