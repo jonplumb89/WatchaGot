@@ -10,9 +10,10 @@ import { MyrecipesService } from '../myrecipes.service';
 })
 export class MyrecipesComponent implements OnInit {
 
+
   myrecipes: MyRecipes[];
 
-  constructor(private myRecipeService: MyrecipesService, private router: Router ) { this.myRecipeService = myRecipeService }
+  constructor(private myRecipeService: MyrecipesService) { this.myRecipeService = myRecipeService }
 
 
   ngOnInit() {
