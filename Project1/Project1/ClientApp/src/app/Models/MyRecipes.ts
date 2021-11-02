@@ -1,6 +1,6 @@
 export class MyRecipes {
-  userId: string;
   recipeId: number;
+  userId: string;
   title: string;
   readyInMinutes: number;
   summary: string;

@@ -1,1 +1,28 @@
-<p>myrecipes works!</p>
+
+<div class="content">
+  <h2 class="title">My Family Recipes</h2>
+  <form class="adding">
+    <label>Title</label>
+    <input type="text" class="form-control" id="title" name="title" #title />
+
+    <label>Ready In Minutes</label>
+    <input type="text" class="form-control" id="readyInMinutes" name="readyInMinutes" #readyInMinutes />
+
+    <label>Summary</label>
+    <input type="text" class="form-control" id="summary" name="summary" #summary />
+
+    <label>Servings</label>
+    <input type="text" class="form-control" id="servings" name="servings" #servings />
+
+    <label>Instructions</label>
+    <input type="text" class="form-control" id="instructions" name="instructions" #instructions />
+
+    <label>Ingredients</label>
+    <input type="text" class="form-control" id="ingredients" name="ingredients" #ingredients />
+
+    <button id="butt" class="btn-primary btn" (click)="addRecipes(
+                title.value, readyInMinutes.value, summary.value, servings.value, instructions.value, ingredients.value)">
+      Add
+    </button>
+  </form>
+</div>
