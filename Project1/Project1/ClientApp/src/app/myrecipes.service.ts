@@ -14,5 +14,4 @@ export class MyrecipesService {
   getMyRecipes() {
     return this.httpClient.get<MyRecipes[]>(this.apiUrl);
   }
-
 }
