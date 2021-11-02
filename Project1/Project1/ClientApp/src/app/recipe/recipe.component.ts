@@ -11,35 +11,46 @@ import { RecipeInfo } from '../Models/RecipeInfo';
 })
 export class RecipeComponent implements OnInit {
   sourceUrl: string = "";
-  recipes: Recipe = null;
+  recipes: Recipe[] = null;
   foods: String[] = [];
   recipeInfos: RecipeInfo;
   extendIngreds: RecipeInfo["extendedIngredients"];
+  missingIngredsCount: Recipe["missedIngredientCount"];
   in_food: any;
-
+  sAmount: string = '';
+  doit: string;
 
   get sanSourceUrl() {
     return this.sanatizer.bypassSecurityTrustResourceUrl(this.sourceUrl);
   }
-
 
   constructor(private recipeService: RecipesService, private sanatizer: DomSanitizer) {
     this.recipeService = recipeService
   }
 
   ngOnInit() {
-
   }
 
- bang(food: string) {
+  removeCh(str) {
+    if ((str === null) || (str === ''))
+      return false;
+    else
+      str = str.toString();
+    return str.replace(/(<([^>]+)>)/ig, '');
+  }
+
+
+
+  bang(food: string) {
     if (food.length == 0) return;
-   this.foods = this.foods.concat(food.split(/[\s,]+/).filter(x => !this.foods.includes(x)));
+    this.foods = this.foods.concat(food.split(/[\s,]+/).filter(x => !this.foods.includes(x)));
     this.in_food = '';
   }
 
-  submitList() {
+  submitList(sAmount: string) {
     let meow = this.foods.join(",");
-    let url = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=3ad1ee3c2ad5442fbe2e4a7b72183b78&number=30";
+    console.log(this.sAmount);
+    let url = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=3133ec68e1e64966beab5325e6a3ee21&number=" + this.sAmount;
     meow = "&ingredients=" + meow;
     this.recipeService.getRecipies(url + meow).subscribe(data => {
       this.recipes = data;
@@ -48,11 +59,13 @@ export class RecipeComponent implements OnInit {
   }
 
 
-
   getRecipe(id: number, data: Response) {
     this.recipeService.getRecipe(id).subscribe(data => {
       this.recipeInfos = data;
       this.extendIngreds = data.extendedIngredients;
+      if (this.recipeInfos.instructions != null) {
+        this.doit = this.removeCh(this.recipeInfos.instructions)
+      }
       console.log(this.recipeInfos);
     })
   }
@@ -62,10 +75,5 @@ export class RecipeComponent implements OnInit {
     if (index > -1) {
       this.foods.splice(index, 1);
     }
-
-    this.recipeService.getRecipeDetails()
-      .subscribe(result => {
-        this.recipes = result;
-      })
   }
 }
