@@ -7,10 +7,10 @@ import { AspNetUser } from './Models/Users';
 })
 export class AspNetUserService {
 
-  apiUrl: string = "https://localhost:5001/api/AspNetUser";
+  apiUrl: string = "https://localhost:5001/api/AspNetUsers";
   constructor(private httpClient: HttpClient) { }
 
-  GetUser() {
+  getAspNetUsers() {
     return this.httpClient.get<AspNetUser[]>(this.apiUrl);
   }
 }
