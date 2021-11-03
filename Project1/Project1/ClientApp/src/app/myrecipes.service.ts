@@ -14,4 +14,8 @@ export class MyrecipesService {
   getMyRecipes() {
     return this.httpClient.get<MyRecipes[]>(this.apiUrl);
   }
+
+  PostMyRecipe(myrecipes: MyRecipes): Observable<MyRecipes> {
+    return this.httpClient.post<MyRecipes>(this.apiUrl, myrecipes);
+  }
 }
