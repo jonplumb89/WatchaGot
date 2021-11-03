@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Project1.Models;
@@ -15,9 +16,14 @@ namespace Project1.Controllers
     {
         private readonly recipefinderContext _context;
 
-        public MyFavoriteRecipesController(recipefinderContext context)
+
+        private UserManager<ApplicationUser> _userManager;
+
+       
+        public MyFavoriteRecipesController(recipefinderContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: api/MyFavoriteRecipes
@@ -27,19 +33,27 @@ namespace Project1.Controllers
             return await _context.MyFavoriteRecipes.ToListAsync();
         }
 
-        // GET: api/MyFavoriteRecipes/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<MyFavoriteRecipe>> GetMyFavoriteRecipe(int id)
+        [HttpGet("{userName}")]
+        public async Task<ActionResult<IEnumerable<MyFavoriteRecipe>>> GetMyFavoriteRecipes(string username)
         {
-            var myFavoriteRecipe = await _context.MyFavoriteRecipes.FindAsync(id);
-
-            if (myFavoriteRecipe == null)
-            {
-                return NotFound();
-            }
-
-            return myFavoriteRecipe;
+            var user = _userManager.Users.FirstOrDefault(x => x.UserName == username);
+            
+            return await _context.MyFavoriteRecipes.Where(x => x.UserId == user.Id).ToListAsync();
         }
+
+        // GET: api/MyFavoriteRecipes/5
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult<MyFavoriteRecipe>> GetMyFavoriteRecipe(int id)
+        //{
+        //    var myFavoriteRecipe = await _context.MyFavoriteRecipes.FindAsync(id);
+
+        //    if (myFavoriteRecipe == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return myFavoriteRecipe;
+        //}
 
         // PUT: api/MyFavoriteRecipes/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

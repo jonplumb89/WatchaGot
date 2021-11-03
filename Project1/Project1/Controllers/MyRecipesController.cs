@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Project1.Models;
@@ -15,9 +16,11 @@ namespace Project1.Controllers
     {
         private readonly recipefinderContext _context;
 
-        public MyRecipesController(recipefinderContext context)
+        private UserManager<ApplicationUser> _userManager;
+        public MyRecipesController(recipefinderContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: api/MyRecipes
@@ -27,19 +30,27 @@ namespace Project1.Controllers
             return await _context.MyRecipes.ToListAsync();
         }
 
-        // GET: api/MyRecipes/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<MyRecipe>> GetMyRecipe(int id)
+        [HttpGet("{userName}")]
+        public async Task<ActionResult<IEnumerable<MyRecipe>>> GetMyRecipes(string username)
         {
-            var myRecipe = await _context.MyRecipes.FindAsync(id);
+            var user = _userManager.Users.FirstOrDefault(x => x.UserName == username);
 
-            if (myRecipe == null)
-            {
-                return NotFound();
-            }
-
-            return myRecipe;
+            return await _context.MyRecipes.Where(x => x.UserId == user.Id).ToListAsync();
         }
+
+        // GET: api/MyRecipes/5
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult<MyRecipe>> GetMyRecipe(int id)
+        //{
+        //    var myRecipe = await _context.MyRecipes.FindAsync(id);
+
+        //    if (myRecipe == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return myRecipe;
+        //}
 
         // PUT: api/MyRecipes/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
