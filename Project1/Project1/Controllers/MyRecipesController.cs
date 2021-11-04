@@ -88,9 +88,14 @@ namespace Project1.Controllers
         [HttpPost]
         public async Task<ActionResult<MyRecipe>> PostMyRecipe(MyRecipe myRecipe)
         {
+            var user = _context.AspNetUsers.FirstOrDefault(x => x.UserName == myRecipe.UserId);
+           
+            myRecipe.UserId = user.Id;
             _context.MyRecipes.Add(myRecipe);
             await _context.SaveChangesAsync();
 
+            //return CreatedAtAction("GetMyRecipe", new { id = myRecipe.RecipeId }, myRecipe.UserId == user.Id);
+            //return await _context.MyRecipes.Where(x => x.UserId == user.Id).ToListAsync();
             return CreatedAtAction("GetMyRecipe", new { id = myRecipe.RecipeId }, myRecipe);
         }
 
