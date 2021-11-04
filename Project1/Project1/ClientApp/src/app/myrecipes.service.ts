@@ -27,4 +27,10 @@ export class MyrecipesService {
   PostMyRecipe(myrecipes: MyRecipes): Observable<MyRecipes> {
     return this.httpClient.post<MyRecipes>(this.apiUrl, myrecipes);
   }
+
+  //PostMyRecipe(myrecipes: MyRecipes): Observable<MyRecipes> {
+  //  this.authorizeService.getUser()
+  //    .subscribe(user => this.name = user.name)
+  //  return this.httpClient.post<MyRecipes>(this.apiUrl + this.name, myrecipes);
+  //}
 }
