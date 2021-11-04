@@ -69,6 +69,8 @@
   </tr>
 
 
+
+
   <span><u><b>Ingredients: </b></u></span>
   <tr *ngFor="let obj of extendIngreds; let i = index">
     <td class="ingreds">
@@ -78,6 +80,7 @@
       <span *ngIf="obj.aisle != 'Spices and Seasonings'">
         - {{obj.original}}
       </span>
+      <button (click)="addFavorite(obj)">Favorites</button>
     </td>
   </tr>
 </tbody>

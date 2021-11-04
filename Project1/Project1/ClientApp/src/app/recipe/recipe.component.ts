@@ -76,4 +76,9 @@ export class RecipeComponent implements OnInit {
       this.foods.splice(index, 1);
     }
   }
+  addFavorite(recipe : RecipeInfo) {
+    console.log(recipe)
+    //this a map recipeinfo to favorite.ts
+    //then send favorite.ts at the model to API controller endpoint
+  }
 }

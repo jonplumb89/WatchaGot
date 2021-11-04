@@ -25,11 +25,11 @@ export class FavoritesService {
 
 
 
-  //PostMyFavoriteRecipe(favorite: any): Observable<any> {
-  //  const user = JSON.parse(window.localStorage.getItem('user'))
-  //  const f = { answers: favorite.answers, questions: favorite.questions, usersId: user.userId, questionId: favorite.questionId }
-  //  return this.httpClient.post<Question>(this.apiUrl, f);
-  //}
+  PostMyFavoriteRecipe(favorite: any): Observable<any> {
+ //   const user = JSON.parse(window.localStorage.getItem('user'))
+    //   const f = { answers: favorite.answers, questions: favorite.questions, usersId: user.userId, questionId: favorite.questionId }
+    return this.httpClient.post<Favorites>(this.apiUrl, favorite);
+  }
 
   //delete(id: number) {
   //  return this.httpClient.delete(`${this.apiUrl}/${id}`);
