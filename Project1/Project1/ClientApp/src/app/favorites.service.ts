@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { AuthorizeService } from '../api-authorization/authorize.service';
 import { Favorites } from './Models/Favorites';
 
@@ -25,11 +26,11 @@ export class FavoritesService {
 
 
 
-  //PostMyFavoriteRecipe(favorite: any): Observable<any> {
+  PostMyFavoriteRecipe(favorite: any): Observable<any> {
   //  const user = JSON.parse(window.localStorage.getItem('user'))
   //  const f = { answers: favorite.answers, questions: favorite.questions, usersId: user.userId, questionId: favorite.questionId }
-  //  return this.httpClient.post<Question>(this.apiUrl, f);
-  //}
+  return this.httpClient.post<Favorites>(this.apiUrl, favorite);
+  }
 
   //delete(id: number) {
   //  return this.httpClient.delete(`${this.apiUrl}/${id}`);
