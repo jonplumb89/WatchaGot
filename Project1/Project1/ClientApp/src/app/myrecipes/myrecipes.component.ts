@@ -31,7 +31,7 @@ export class MyrecipesComponent implements OnInit {
   ) {
     let myrecipe = new MyRecipes();
     this.userAuthService.getUser().subscribe(user => {
-      myrecipe.userId = this.userAuthService.user.name;
+      myrecipe.userId = user.name;
     });
 
     myrecipe.title = title;
@@ -64,6 +64,10 @@ export class MyrecipesComponent implements OnInit {
     this.myRecipeService.deleteRecipe(recipeId).subscribe(() => {
       this.ngOnInit();
     })
+  }
+
+  reloadCurrentPage() {
+    window.location.reload();
   }
 
 }
