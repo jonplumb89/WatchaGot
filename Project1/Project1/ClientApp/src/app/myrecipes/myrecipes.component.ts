@@ -60,6 +60,12 @@ export class MyrecipesComponent implements OnInit {
     console.log(myrecipe);
   }
 
+  deleteRecipe(recipeId: number) {
+    this.myRecipeService.deleteRecipe(recipeId).subscribe(() => {
+      this.ngOnInit();
+    })
+  }
+
 }
 
   //addRecipes(

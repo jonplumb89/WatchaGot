@@ -9,6 +9,7 @@
       <th><b>Servings</b></th>
       <th><b>Instructions</b></th>
       <th><b>Ingredients</b></th>
+      <th><b>RecipeId</b></th>
     </tr>
   </thead>
   <tbody>
@@ -19,6 +20,8 @@
       <td>{{ recipe.servings }}</td>
       <td>{{ recipe.instructions }}</td>
       <td>{{ recipe.ingredients }}</td>
+      <td>{{ recipe.recipeId }}</td>
+      <td><button (click)="deleteRecipe(recipe.recipeId)" class="btn-primary btn">Delete</button></td>
     </tr>
   </tbody>
 

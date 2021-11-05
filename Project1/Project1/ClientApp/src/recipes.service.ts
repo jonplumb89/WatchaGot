@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { MyRecipes } from './app/Models/MyRecipes';
 import { Recipe } from './app/Models/Recipe';
 import { RecipeInfo } from './app/Models/RecipeInfo';
 
@@ -37,4 +38,5 @@ export class RecipesService {
   askRecipie() {
     return this.httpClient.get<Recipe>(this.recipesURL);
   }
+
 }
