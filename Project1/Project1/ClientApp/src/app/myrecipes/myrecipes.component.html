@@ -1,57 +1,128 @@
-<p *ngIf="!myrecipes"><em>Loading...</em></p>
-
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="myrecipes">
-  <thead>
-    <tr>
-      <th><b>Recipe Title</b></th>
-      <th><b>Time</b></th>
-      <th><b>Summary</b></th>
-      <th><b>Servings</b></th>
-      <th><b>Instructions</b></th>
-      <th><b>Ingredients</b></th>
-      <th><b>RecipeId</b></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let recipe of myrecipes">
-      <td>{{ recipe.title }}</td>
-      <td>{{ recipe.readyInMinutes }}</td>
-      <td>{{ recipe.summary }}</td>
-      <td>{{ recipe.servings }}</td>
-      <td>{{ recipe.instructions }}</td>
-      <td>{{ recipe.ingredients }}</td>
-      <td>{{ recipe.recipeId }}</td>
-      <td><button (click)="deleteRecipe(recipe.recipeId)" class="btn-primary btn">Delete</button></td>
-    </tr>
-  </tbody>
-
-
-
-
+<body>
   <div class="content">
     <h2 class="title">My Family Recipes</h2>
     <form class="adding">
-      <label>Title</label>
-      <input type="text" class="form-control" id="title" name="title" #title />
 
-      <label>Ready In Minutes</label>
-      <input type="text" class="form-control" id="readyInMinutes" name="readyInMinutes" #readyInMinutes />
+      <div class="mb-3">
+        <label class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" name="title" #title placeholder="Title" />
+      </div>
 
-      <label>Summary</label>
-      <input type="text" class="form-control" id="summary" name="summary" #summary />
-
-      <label>Servings</label>
-      <input type="text" class="form-control" id="servings" name="servings" #servings />
-
-      <label>Instructions</label>
-      <input type="text" class="form-control" id="instructions" name="instructions" #instructions />
-
-      <label>Ingredients</label>
-      <input type="text" class="form-control" id="ingredients" name="ingredients" #ingredients />
-
-      <button id="butt" class="btn-primary btn" (click)="addRecipes(
-                title.value, readyInMinutes.value, summary.value, servings.value, instructions.value, ingredients.value); reloadCurrentPage()">
-        Add
-      </button>
+      <div class="mb-3">
+        <label>Ready In Minutes</label>
+        <input type="text" class="form-control" id="readyInMinutes" name="readyInMinutes" #readyInMinutes placeholder="readyInMinutes" />
+      </div>
+      <div class="mb-3">
+        <label>Summary</label>
+        <input type="text" class="form-control" id="summary" name="summary" #summary placeholder="summary" />
+      </div>
+      <div class="mb-3">
+        <label>Servings</label>
+        <input type="text" class="form-control" id="servings" name="servings" #servings placeholder="servings" />
+      </div>
+      <div class="mb-3">
+        <label>Instructions</label>
+        <input type="text" class="form-control" id="instructions" name="instructions" #instructions placeholder="instructions" />
+      </div>
+      <div class="mb-3">
+        <label>Ingredients</label>
+        <input type="text" class="form-control" id="ingredients" name="ingredients" #ingredients placeholder="ingredients" />
+      </div>
+      <div style="text-align:left;">
+        <button style="text-align:center; width: 45%; margin-bottom: 1em;" id="butt" class="btn btn-primary btn-lg" (click)="addRecipes(
+                title.value, readyInMinutes.value, summary.value, servings.value, instructions.value, ingredients.value)">
+          Add Recipe
+        </button>
+      </div>
     </form>
   </div>
+
+
+
+  <p *ngIf="!myrecipes"><em>Loading...</em></p>
+  <div class="table-responsive h-100 d-flex flex-column">
+    <table class="table table-striped table-bordered" *ngIf="myrecipes">
+      <thead class="table-dark">
+        <tr>
+          <th class="text-center"><b>Edit</b></th>
+          <th class="text-center"><b>Title</b></th>
+          <th class="text-center"><b>Time</b></th>
+          <th class="text-center"><b>Summary</b></th>
+          <th class="text-center"><b>Servings</b></th>
+          <th class="text-center"><b>Instructions</b></th>
+          <th class="text-center"><b>Ingredients</b></th>
+
+
+        </tr>
+      </thead>
+      <tbody class="table table-hover">
+        <tr *ngFor="let recipe of myrecipes; index as i" style="width:18%; text-align:center;">
+
+          <td>
+            <button style="width:100%; margin-bottom:.7em" class="btn btn-outline-success .btn-sm" (click)="enableEditMethod($event, i)" *ngIf="!enableEdit">Edit</button>
+            <button style="width: 100%; margin-bottom: .7em" class="btn btn-outline-success .btn-sm" (click)="enableEditMethod($event, i)" *ngIf="enableEdit">Save</button>
+            <button style="width:100%;" class="btn btn-outline-success .btn-sm" (click)="deleteRecipe(recipe.recipeId)" class="btn btn-outline-danger">Delete</button>
+          </td>
+
+
+          <td *ngIf="!enableEdit">
+            {{ recipe.title }}
+          </td>
+
+          <td *ngIf="enableEdit">
+            <input type="text" ng-model="recipe.title" placeholder="{{ recipe.title }}" style="width:60%">
+          </td>
+
+          <td *ngIf="!enableEdit">
+            {{ recipe.readyInMinutes }} minutes
+          </td>
+
+          <td *ngIf="enableEdit">
+            <input type="text" ng-model="recipe.readyInMinutes" placeholder="{{ recipe.readyInMinutes }}">
+          </td>
+
+          <td *ngIf="!enableEdit">
+            {{ recipe.summary }}
+          </td>
+
+          <td *ngIf="enableEdit">
+            <input type="text" ng-model="recipe.summary" placeholder="{{ recipe.summarye }}">
+          </td>
+
+          <td *ngIf="!enableEdit">
+            {{ recipe.servings }}
+          </td>
+
+          <td *ngIf="enableEdit">
+            <input type="text" ng-model="recipe.servings" placeholder="{{ recipe.servings }}">
+          </td>
+
+          <td *ngIf="!enableEdit">
+            {{ recipe.instructions }}
+          </td>
+
+          <td *ngIf="enableEdit">
+            <input type="text" ng-model="recipe.instructions" placeholder="{{ recipe.instructions }}">
+          </td>
+
+          <td *ngIf="!enableEdit">
+            {{ recipe.ingredients }}
+          </td>
+
+          <td *ngIf="enableEdit">
+            <input type="text" ng-model="recipe.ingredients" placeholder="{{ recipe.ingredients }}">
+          </td>
+
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+
+
+
+
+
+
