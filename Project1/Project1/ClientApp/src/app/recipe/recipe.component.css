@@ -94,3 +94,7 @@
   .numberBox {
       border-radius: 10px;
   }
+
+  body {
+      margin-left: 250px;
+  }
