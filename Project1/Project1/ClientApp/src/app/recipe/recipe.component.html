@@ -56,6 +56,7 @@
 </span>
 
 <tbody *ngIf="recipeInfos">
+  <button (click)="addFavorite(recipeInfos)">Favorites</button>
   <tr>
     <td class="recipeName"> <u><b>-{{recipeInfos.title}}-</b></u></td>
   </tr>
@@ -80,7 +81,6 @@
       <span *ngIf="obj.aisle != 'Spices and Seasonings'">
         - {{obj.original}}
       </span>
-      <button (click)="addFavorite(obj)">Favorites</button>
     </td>
   </tr>
 </tbody>
