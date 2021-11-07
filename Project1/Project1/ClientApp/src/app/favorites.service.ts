@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
+import { Observable } from 'rxjs';
 import { AuthorizeService } from '../api-authorization/authorize.service';
 import { Favorites } from './Models/Favorites';
 import { MyRecipes } from './Models/MyRecipes';
@@ -33,7 +34,6 @@ export class FavoritesService {
     console.log(favorite)
     return this.httpClient.post<Favorites>(this.apiUrl + this.name, favorite);
   }
-
   //delete(id: number) {
   //  return this.httpClient.delete(`${this.apiUrl}/${id}`);
   //}

@@ -47,6 +47,7 @@ import { MyrecipesComponent } from './myrecipes/myrecipes.component';
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
       { path: 'MyFavoriteRecipes', component: FavoritesComponent, canActivate: [AuthorizeGuard] },
       { path: 'MyRecipes', component: MyrecipesComponent, canActivate: [AuthorizeGuard] },
+      { path: 'Recipe', component: RecipeComponent}
     ])
   ],
   providers: [RecipesService,
