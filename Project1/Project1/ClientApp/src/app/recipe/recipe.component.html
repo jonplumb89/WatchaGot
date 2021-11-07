@@ -35,7 +35,7 @@
   <hr />
   <div class="recipeBox">
     <tbody class="recList" *ngIf="recipes">
-      <tr><h2><u>Recipie Results: </u></h2></tr>
+      <tr><h2><u>Recipe Results: </u></h2></tr>
       <tr *ngFor="let recipe of recipes; let i = index" (click)="getRecipe(recipe.id)" class="stuffBox">
         <td class="resItem">
           <u class="pRes"><b>{{recipe.title}}</b></u>
@@ -52,7 +52,7 @@
   <hr />
 
   <span *ngIf="recipeInfos">
-    <h2><u>Recipie Result:</u></h2>
+    <h2><u>Recipe Result:</u></h2>
   </span>
 
   <tbody *ngIf="recipeInfos">
