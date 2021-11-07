@@ -52,12 +52,13 @@
   <hr />
 
   <span *ngIf="recipeInfos">
-    <h2><u>Recipie Result</u></h2>
+    <h2><u>Recipie Result:</u></h2>
   </span>
 
   <tbody *ngIf="recipeInfos">
+    <button (click)="addFavorite(recipeInfos)">add favorite</button>
     <tr>
-      <td class="recipeName"> <u><b>-{{recipeInfos.title}}-</b></u></td>
+      <td class="recipeName" #title> <u><b>-{{recipeInfos.title}}-</b></u></td>
     </tr>
 
     <tr>
@@ -67,10 +68,9 @@
     <tr>
       <img src="{{recipeInfos.image}}" />
     </tr>
-    <button (click)="saveFavorite">Save As Favorite</button>
 
 
-    <span><u><b>Ingredients: </b></u></span>
+      <span><u><b>Ingredients: </b></u></span>
     <tr *ngFor="let obj of extendIngreds; let i = index">
       <td class="ingreds">
         <span *ngIf="obj.aisle == 'Spices and Seasonings'">

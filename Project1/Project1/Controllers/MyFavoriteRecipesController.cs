@@ -91,6 +91,10 @@ namespace Project1.Controllers
         [HttpPost]
         public async Task<ActionResult<MyFavoriteRecipe>> PostMyFavoriteRecipe(MyFavoriteRecipe myFavoriteRecipe)
         {
+            //var user = _context.AspNetUsers.FirstOrDefault(x => x.UserName == myFavoriteRecipe.UserId);
+           
+            //myFavoriteRecipe.UserId = user.Id;
+
             _context.MyFavoriteRecipes.Add(myFavoriteRecipe);
             await _context.SaveChangesAsync();
 

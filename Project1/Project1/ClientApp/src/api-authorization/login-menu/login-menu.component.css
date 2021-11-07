@@ -2,3 +2,7 @@
   font-size: .7em;
   margin-bottom: -2em;
 }
+
+#theThing:hover {
+  background-color: #009879;
+}
