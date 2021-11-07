@@ -31,9 +31,10 @@ export class FavoritesService {
   //}
 
   postMyFavoriteRecipe(favorite: Favorites): Observable<Favorites> {
-    //this.authorizeService.getUser()
-    //  .subscribe(user => this.name = user.name)
+    this.authorizeService.getUser()
+      .subscribe(user => this.name = user.name)
     console.log(favorite)
+    favorite.userName = this.name;
     return this.httpClient.post<Favorites>(this.apiUrl, favorite);
   }
 

@@ -1,6 +1,6 @@
 export class Favorites {
   favoritesId: number;
-  userId: string;
+  userName: string;
   recipeId: number;
   title: string;
   readyInMinutes: number;
