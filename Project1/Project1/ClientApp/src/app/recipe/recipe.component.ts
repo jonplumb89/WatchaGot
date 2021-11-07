@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { RecipesService } from '../../recipes.service';
+import { FavoritesService } from '../favorites.service';
+import { Favorites } from '../Models/Favorites';
 import { Recipe, SedIngredient } from '../Models/Recipe';
 import { RecipeInfo } from '../Models/RecipeInfo';
 
@@ -24,7 +26,7 @@ export class RecipeComponent implements OnInit {
     return this.sanatizer.bypassSecurityTrustResourceUrl(this.sourceUrl);
   }
 
-  constructor(private recipeService: RecipesService, private sanatizer: DomSanitizer) {
+  constructor(private recipeService: RecipesService, private sanatizer: DomSanitizer, private favoritesService: FavoritesService) {
     this.recipeService = recipeService
   }
 
@@ -75,5 +77,12 @@ export class RecipeComponent implements OnInit {
     if (index > -1) {
       this.foods.splice(index, 1);
     }
+  }
+  addFavorite(favorite: Favorites) {
+   
+    this.favoritesService.postMyFavoriteRecipe(favorite).subscribe()
+
+    //this a map favorite to favorite.ts
+    //then send favorite.ts at the model to API controller endpoint
   }
 }
