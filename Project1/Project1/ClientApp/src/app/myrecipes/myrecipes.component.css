@@ -1,0 +1,11 @@
+.table-responsive {
+  border-radius: 4px 4px 4px 4px;
+}
+
+  .table-responsive table {
+    border-radius: 4px 4px 4px 4px;
+  }
+
+body {
+    margin-left: 250px;
+}

@@ -28,9 +28,7 @@ export class MyrecipesService {
     return this.httpClient.post<MyRecipes>(this.apiUrl, myrecipes);
   }
 
-  //PostMyRecipe(myrecipes: MyRecipes): Observable<MyRecipes> {
-  //  this.authorizeService.getUser()
-  //    .subscribe(user => this.name = user.name)
-  //  return this.httpClient.post<MyRecipes>(this.apiUrl + this.name, myrecipes);
-  //}
+  deleteRecipe(recipeId: number) {
+    return this.httpClient.delete<MyRecipes[]>(this.apiUrl + recipeId);
+  }
 }

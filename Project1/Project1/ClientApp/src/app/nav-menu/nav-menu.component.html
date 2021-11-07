@@ -1,45 +1,30 @@
-<header>
-  <nav
-    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
-  >
-    <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']">Project1</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target=".navbar-collapse"
-        aria-label="Toggle navigation"
-        [attr.aria-expanded]="isExpanded"
-        (click)="toggle()"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div
-        class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
-        [ngClass]="{ show: isExpanded }"
-      >
-        <ul class="navbar-nav flex-grow">
-          <li class="nav-item"
-              [routerLinkActive]="['link-active']"
-              [routerLinkActiveOptions]="{ exact: true }">
-            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/counter']">Counter</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/fetch-data']">Fetch data</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/MyFavoriteRecipes']">My Favorite Recipes</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/MyRecipes']">My Recipes</a>
-          </li>
-        </ul>
-        <app-login-menu></app-login-menu>
-      </div>
+<body>
+  <nav>
+    <img class="logs" [routerLink]="['/']" src="../../assets/logo7.png" alt="logo" />
+    <a href="#" [routerLink]="['/']">Home</a>
+    <a href="#" [routerLink]="['/MyFavoriteRecipes']">Favorites</a>
+    <a href="#" [routerLink]="['/MyRecipes']">My Recipes</a>
+    <a href="#" [routerLink]="['/Recipe']">Search Recipies</a>
+    <a href="#"></a>
+    <div id="login">
+      <app-login-menu></app-login-menu>
     </div>
   </nav>
-</header>
+  <main>
+  </main>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

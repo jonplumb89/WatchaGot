@@ -14,6 +14,11 @@ export class MyrecipesComponent implements OnInit {
 
 
   myrecipes: MyRecipes[];
+  enableEdit = false;
+  enableEditIndex = null;
+  thingI: number;
+  
+
 
   constructor(private myRecipeService: MyrecipesService, private router: Router, private userAuthService: AuthorizeService) { this.myRecipeService = myRecipeService }
 
@@ -58,7 +63,29 @@ export class MyrecipesComponent implements OnInit {
         console.log(error.json);
       });
     console.log(myrecipe);
+    window.location.reload();
   }
+
+  deleteRecipe(recipeId: number) {
+    this.myRecipeService.deleteRecipe(recipeId).subscribe(() => {
+      this.ngOnInit();
+    })
+  }
+
+  //editFavorite($event: any, recipieId) {
+  //  console.log($event.target.id);
+  //    this.editRec = !this.editRec;
+  //}
+
+  enableEditMethod(e, i) {
+    this.enableEdit = !this.enableEdit;
+    this.enableEditIndex = i;
+    this.thingI = i
+    console.log(i);
+    console.log(this.thingI);
+    return i
+  }
+
 
 }
 
