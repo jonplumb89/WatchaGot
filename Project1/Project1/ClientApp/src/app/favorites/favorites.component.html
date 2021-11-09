@@ -18,6 +18,7 @@
         <td>{{ favorite.servings }}</td>
         <td>{{ favorite.instructions }}</td>
         <td>{{ favorite.ingredients }}</td>
+        <td><button (click)="deleteFavoriteRecipe(favorite.favoritesId)" class="btn-primary btn">Delete</button></td>
       </tr>
     </tbody>
 

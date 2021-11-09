@@ -20,4 +20,10 @@ export class FavoritesComponent implements OnInit {
       })
   }
 
+  deleteFavoriteRecipe(recipeId: number) {
+    this.favoriteService.deleteFavoriteRecipe(recipeId).subscribe(() => {
+      this.ngOnInit();
+    })
+  }
+
 }

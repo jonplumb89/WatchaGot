@@ -43,4 +43,8 @@ export class FavoritesService {
   //delete(id: number) {
   //  return this.httpClient.delete(`${this.apiUrl}/${id}`);
   //}
+
+  deleteFavoriteRecipe(recipeId: number) {
+    return this.httpClient.delete<Favorites[]>(this.apiUrl + recipeId);
+  }
 }
