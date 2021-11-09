@@ -49,7 +49,7 @@ export class RecipeComponent implements OnInit {
     this.in_food = '';
   }
 
-  submitList(sAmount: string) {
+  submitList() {
     let meow = this.foods.join(",");
     console.log(this.sAmount);
     let url = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=6d824812b91b45929944784ade2c9453&number=" + this.sAmount;
@@ -61,7 +61,8 @@ export class RecipeComponent implements OnInit {
   }
 
 
-  getRecipe(id: number, data: Response) {
+  getRecipe(id: number
+  ) {
     this.recipeService.getRecipe(id).subscribe(data => {
       this.recipeInfos = data;
       this.extendIngreds = data.extendedIngredients;

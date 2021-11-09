@@ -36,19 +36,19 @@
   <div class="recipeBox">
     <tbody class="recList" *ngIf="recipes">
       <tr><h2><u>Recipe Results: </u></h2></tr>
-      <tr *ngFor="let recipe of recipes; let i = index" (click)="getRecipe(recipe.id)" class="stuffBox">
+      <tr *ngFor="let recipe of recipes; let i = index" (click)="getRecipe(recipe.id); " class="stuffBox">
         <td class="resItem">
           <u class="pRes"><b>{{recipe.title}}</b></u>
           <br />
           <hr />
           missed ingredients: {{recipe.missedIngredientCount}}
         </td>
+
+      </tr>
     </tbody>
   </div>
 
-  <tbody style="display:block;">
-    <tr (click)="getRecipe(recipe.id)"></tr>
-  </tbody>
+ 
   <hr />
 
   <span *ngIf="recipeInfos">
@@ -70,7 +70,7 @@
     </tr>
 
 
-      <span><u><b>Ingredients: </b></u></span>
+    <span><u><b>Ingredients: </b></u></span>
     <tr *ngFor="let obj of extendIngreds; let i = index">
       <td class="ingreds">
         <span *ngIf="obj.aisle == 'Spices and Seasonings'">

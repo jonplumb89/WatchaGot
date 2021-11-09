@@ -32,7 +32,7 @@ export class MyrecipesComponent implements OnInit {
   }
 
   addRecipes(
-     title: string, readyInMinutes: number, summary: string, servings: number, instructions: string, ingredients: string, userId: string
+     title: string, readyInMinutes: number, summary: string, servings: number, instructions: string, ingredients: string
   ) {
     let myrecipe = new MyRecipes();
     this.userAuthService.getUser().subscribe(user => {
