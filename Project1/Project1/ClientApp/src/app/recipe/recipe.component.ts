@@ -45,9 +45,9 @@ export class RecipeComponent implements OnInit {
 
   bang(food: string) {
     if (food.length == 0) return;
-    this.foods = this.foods.concat(food.split(/[\s,]+/).filter(x => !this.foods.includes(x)));
-    this.in_food = '';
+    this.foods.push(food);
   }
+
 
   submitList() {
     let meow = this.foods.join(",");
@@ -80,56 +80,11 @@ export class RecipeComponent implements OnInit {
     }
   }
 
-  //addFavorite(favorite: Favorites, title: string, readyInMinutes: number, summary: string, instructions: string, ingredients: string) {
-  //  favorite = new Favorites();
-  //  favorite.title = title;
-  //  favorite.readyInMinutes = readyInMinutes;
-  //  favorite.summary = summary;
-  //  favorite.instructions = instructions;
-  //  favorite.ingredients = ingredients
-  //  console.log(favorite);
-  //  this.favoritesService.postMyFavoriteRecipe(favorite).subscribe()
-
-  //}
-
   addFavorite(favorite: Favorites) {
+    console.log(favorite.extendedIngredients)
     this.favoritesService.postMyFavoriteRecipe(favorite).subscribe()
   }
 
 
 
-  //addRecipes(
-  //  title: string, readyInMinutes: number, summary: string, servings: number, instructions: string, ingredients: string, userId: string
-  //) {
-  //  let myrecipe = new MyRecipes();
-  //  this.userAuthService.getUser().subscribe(user => {
-  //    myrecipe.userId = user.name;
-  //  });
-
-  //  myrecipe.title = title;
-  //  myrecipe.readyInMinutes = readyInMinutes;
-  //  myrecipe.summary = summary;
-  //  myrecipe.servings = servings;
-  //  myrecipe.instructions = instructions;
-  //  myrecipe.ingredients = ingredients;
-
-
-  //  this.myRecipeService.PostMyRecipe(myrecipe)
-  //    .subscribe(result => {
-  //      //logging here
-  //      this.router.navigateByUrl('/MyRecipes')
-  //    }, (error: Response) => {
-  //      if (error.status === 404) {
-  //        console.log('Not Found');
-  //        alert('Not Found');
-  //      }
-
-  //      if (error.status === 500) {
-
-  //      }
-  //      console.log(error.json);
-  //    });
-  //  console.log(myrecipe);
-  //  window.location.reload();
-  //}
 }

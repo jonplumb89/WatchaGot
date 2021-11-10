@@ -20,4 +20,5 @@ var SedIngredient = /** @class */ (function () {
     return SedIngredient;
 }());
 exports.SedIngredient = SedIngredient;
+//made up recipe name takes place of model
 //# sourceMappingURL=Recipe.js.map

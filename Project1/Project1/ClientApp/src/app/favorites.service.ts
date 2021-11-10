@@ -24,20 +24,27 @@ export class FavoritesService {
     return this.httpClient.get<Favorites[]>(this.apiUrl + this.name);
   }
 
-  //postMyFavoriteRecipe(favorite: Favorites): Observable<Favorites> {
-  //  console.log(favorite)
-  //  console.log(this.apiUrl + favorite.title);
-  //  return this.httpClient.post<Favorites>(this.apiUrl, favorite);
-  //}
+  
 
   postMyFavoriteRecipe(favorite: Favorites): Observable<Favorites> {
     this.authorizeService.getUser()
       .subscribe(user => this.name = user.name)
-    console.log(favorite)
+    favorite.ingredients = this.extractIngredients(favorite)
+    console.log(favorite.extendedIngredients);
     favorite.userName = this.name;
     return this.httpClient.post<Favorites>(this.apiUrl, favorite);
   }
-
+  extractIngredients(favorite: Favorites): string {
+    /*loop over each extendedingredient object(foreach) assign Orinal to a string*/
+    let result = '';
+    //for (let ingredient in favorite.extendedIngredients) {
+    //  result += ingredient.
+    //}
+    favorite.extendedIngredients.forEach(x => {
+      result += x.original + ','
+    });
+    return result;
+  }
 
 
   deleteFavoriteRecipe(recipeId: number) {

@@ -1,3 +1,5 @@
+import { SedIngredient } from "./Recipe";
+
 export class Favorites {
   favoritesId: number;
   userName: string;
@@ -8,4 +10,6 @@ export class Favorites {
   servings: number;
   instructions: string;
   ingredients: string;
+  extendedIngredients: SedIngredient[];
+
 }

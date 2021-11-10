@@ -41,7 +41,10 @@
           <u class="pRes"><b>{{recipe.title}}</b></u>
           <br />
           <hr />
-          missed ingredients: {{recipe.missedIngredientCount}}
+          <u *ngIf="recipe.missedIngredientCount > 0">
+            missed ingredients: {{recipe.missedIngredientCount}}
+          </u>
+
         </td>
 
       </tr>

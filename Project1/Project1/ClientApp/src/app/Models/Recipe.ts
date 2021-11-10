@@ -17,6 +17,7 @@ export class Recipe {
   unusedIngredients: any[];
   usedIngredientCount: number;
   imageType: string;
+  extendedIngredients: SedIngredient[];
 }
 
 export class SedIngredient {
