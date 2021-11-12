@@ -176,8 +176,17 @@ body {
   background-color: #ffffff;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #0c0c0c;
-  box-shadow: 0 6px 6px rgba(0,0,0,0.5);
 }
+
+  .resItem:hover {
+    box-shadow: 0 1px 1px rgba(0,0,0,0.11),
+        0 2px 2px rgba(0,0,0,0.11),
+        0 4px 4px rgba(0,0,0,0.11),
+        0 8px 8px rgba(0,0,0,0.11),
+        0 16px 16px rgba(0,0,0,0.11),
+        0 32px 32px rgba(0,0,0,0.11);
+    /* #FFD977; -gold-yellow*/
+  }
 
 .picBox {
   width: 312px !important;
@@ -194,6 +203,7 @@ body {
 
 .resItem:hover {
   cursor: pointer;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.11), 0 2px 2px rgba(0,0,0,0.11), 0 4px 4px rgba(0,0,0,0.11), 0 8px 8px rgba(0,0,0,0.11), 0 16px 16px rgba(0,0,0,0.11), 0 32px 32px rgba(0,0,0,0.11);
 }
 
 .recipeBox {
@@ -262,6 +272,7 @@ ul.donate-now {
 
   .favoriteAdd:hover {
     background-color: #cc002b;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.11), 0 2px 2px rgba(0,0,0,0.11), 0 4px 4px rgba(0,0,0,0.11), 0 8px 8px rgba(0,0,0,0.11), 0 16px 16px rgba(0,0,0,0.11), 0 32px 32px rgba(0,0,0,0.11);
   }
 
 .myButt {
@@ -276,6 +287,11 @@ ul.donate-now {
   color: white;
   border: 1.5px solid white;
 }
+
+  .myButt:hover {
+    background: #A30022;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.11), 0 2px 2px rgba(0,0,0,0.11), 0 4px 4px rgba(0,0,0,0.11), 0 8px 8px rgba(0,0,0,0.11), 0 16px 16px rgba(0,0,0,0.11), 0 32px 32px rgba(0,0,0,0.11);
+  }
 
 .howMany {
   margin-top: 10px;
@@ -334,7 +350,7 @@ div.sButts{
 
   #finButton:hover {
     background: #A30022;
-    
+    box-shadow: 0 1px 1px rgba(0,0,0,0.11), 0 2px 2px rgba(0,0,0,0.11), 0 4px 4px rgba(0,0,0,0.11), 0 8px 8px rgba(0,0,0,0.11), 0 16px 16px rgba(0,0,0,0.11), 0 32px 32px rgba(0,0,0,0.11);
   }
 
 
@@ -431,4 +447,5 @@ ul.donate-now {
 
     .donate-now label:hover {
       background: #A30022;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.11), 0 2px 2px rgba(0,0,0,0.11), 0 4px 4px rgba(0,0,0,0.11), 0 8px 8px rgba(0,0,0,0.11), 0 16px 16px rgba(0,0,0,0.11), 0 32px 32px rgba(0,0,0,0.11);
     }
