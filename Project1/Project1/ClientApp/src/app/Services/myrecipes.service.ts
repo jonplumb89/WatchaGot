@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AuthorizeService } from '../api-authorization/authorize.service';
-import { MyRecipes } from './Models/MyRecipes';
+import { AuthorizeService } from '../../api-authorization/authorize.service';
+import { MyRecipes } from '../Models/MyRecipes';
 
 @Injectable({
   providedIn: 'root'

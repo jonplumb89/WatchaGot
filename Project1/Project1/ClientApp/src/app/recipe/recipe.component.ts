@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { RecipesService } from '../../recipes.service';
-import { FavoritesService } from '../favorites.service';
+import { FavoritesService } from '../Services/favorites.service';
 import { Favorites } from '../Models/Favorites';
 import { Recipe, SedIngredient } from '../Models/Recipe';
 import { RecipeInfo } from '../Models/RecipeInfo';
