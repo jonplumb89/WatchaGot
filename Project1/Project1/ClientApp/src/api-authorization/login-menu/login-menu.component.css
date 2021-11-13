@@ -6,3 +6,15 @@
 #theThing:hover {
   background-color: #009879;
 }
+
+a#theThing.nav-link {
+    color: #FFFFFF;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: -10px;
+}
+
+a#theThing2.nav-link {
+  color: #FFFFFF;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin-top: -10px;
+}

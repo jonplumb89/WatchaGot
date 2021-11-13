@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,7 +19,7 @@ namespace Project1.Controllers
 
         private UserManager<ApplicationUser> _userManager;
 
-       
+
         public MyFavoriteRecipesController(recipefinderContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
@@ -37,7 +37,7 @@ namespace Project1.Controllers
         public async Task<ActionResult<IEnumerable<MyFavoriteRecipe>>> GetMyFavoriteRecipes(string username)
         {
             var user = _userManager.Users.FirstOrDefault(x => x.UserName == username);
-            
+
             return await _context.MyFavoriteRecipes.Where(x => x.UserId == user.Id).ToListAsync();
         }
 
@@ -92,7 +92,7 @@ namespace Project1.Controllers
         //public async Task<ActionResult<MyFavoriteRecipe>> PostMyFavoriteRecipe(MyFavoriteRecipe myFavoriteRecipe)
         //{
         //    //var user = _context.AspNetUsers.FirstOrDefault(x => x.UserName == myFavoriteRecipe.UserId);
-           
+
         //    //myFavoriteRecipe.UserId = user.Id;
 
         //    _context.MyFavoriteRecipes.Add(myFavoriteRecipe);
@@ -103,6 +103,7 @@ namespace Project1.Controllers
         [HttpPost]
         public async Task<ActionResult<MyFavoriteRecipe>> PostMyFavoriteRecipeByUser(RecipeUserName myFavoriteRecipe)
         {
+
             var user = _context.AspNetUsers.FirstOrDefault(x => x.UserName == myFavoriteRecipe.UserName);
 
             myFavoriteRecipe.UserId = user.Id;

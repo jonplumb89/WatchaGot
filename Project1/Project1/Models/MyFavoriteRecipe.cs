@@ -9,7 +9,7 @@ namespace Project1.Models
     {
         public int FavoritesId { get; set; }
         public string UserId { get; set; }
-        public int? RecipeId { get; set; }
+        public int RecipeId { get; set; }
         public string Title { get; set; }
         public int? ReadyInMinutes { get; set; }
         public string Summary { get; set; }

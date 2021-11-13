@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { RecipesService } from '../../recipes.service';
 import { FavoritesService } from '../Services/favorites.service';
 import { Favorites } from '../Models/Favorites';
 import { Recipe, SedIngredient } from '../Models/Recipe';
 import { RecipeInfo } from '../Models/RecipeInfo';
+import { NavMenuComponent } from '../nav-menu/nav-menu.component';
 
 @Component({
   selector: 'app-recipe',
   templateUrl: './recipe.component.html',
   styleUrls: ['./recipe.component.css']
 })
+
 export class RecipeComponent implements OnInit {
   sourceUrl: string = "";
   recipes: Recipe[] = null;
@@ -21,17 +23,27 @@ export class RecipeComponent implements OnInit {
   in_food: any;
   sAmount: string = '';
   doit: string;
+  sizing: NavMenuComponent;
+
+  //@Input() closeHerUp = '';
+
+  //@HostListener()()
+
 
   get sanSourceUrl() {
     return this.sanatizer.bypassSecurityTrustResourceUrl(this.sourceUrl);
   }
 
   constructor(private recipeService: RecipesService, private sanatizer: DomSanitizer, private favoritesService: FavoritesService) {
-    this.recipeService = recipeService
+
+    this.recipeService = recipeService;
+
   }
 
   ngOnInit() {
+    (<HTMLInputElement>document.getElementById("toggleBtn")).checked = false;
   }
+
 
   removeCh(str) {
     if ((str === null) || (str === ''))
@@ -46,6 +58,7 @@ export class RecipeComponent implements OnInit {
   bang(food: string) {
     if (food.length == 0) return;
     this.foods.push(food);
+    this.in_food = '';
   }
 
 
@@ -60,17 +73,25 @@ export class RecipeComponent implements OnInit {
     })
   }
 
-
-  getRecipe(id: number
-  ) {
+  getRecipe(id: number) {
     this.recipeService.getRecipe(id).subscribe(data => {
       this.recipeInfos = data;
       this.extendIngreds = data.extendedIngredients;
       if (this.recipeInfos.instructions != null) {
-        this.doit = this.removeCh(this.recipeInfos.instructions)
+        this.doit = this.removeCh(this.recipeInfos.instructions);
       }
       console.log(this.recipeInfos);
+      // update and display modal
+      let x = (<ElementCSSInlineStyle>document.getElementById("myModal"));
+      if (x != null) x.style.display = 'block';
     })
+  }
+
+  modalMode($event) {
+    if ($event.target.classList.contains("modalClose")) {
+      let modal = (<ElementCSSInlineStyle>document.getElementById("myModal"));
+      if (modal != null) modal.style.display = "none";
+    }
   }
 
   delete(value: string) {
@@ -81,10 +102,8 @@ export class RecipeComponent implements OnInit {
   }
 
   addFavorite(favorite: Favorites) {
-    console.log(favorite.extendedIngredients)
+    //console.log(favorite.extendedIngredients)
+    console.log(favorite);
     this.favoritesService.postMyFavoriteRecipe(favorite).subscribe()
   }
-
-
-
 }

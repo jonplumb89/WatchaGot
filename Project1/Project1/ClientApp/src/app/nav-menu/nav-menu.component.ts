@@ -8,11 +8,24 @@ import { Component } from '@angular/core';
 export class NavMenuComponent {
   isExpanded = false;
 
-  collapse() {
-    this.isExpanded = false;
+  constructor() {
+
+  }
+
+  ngOnInit() {
+    (<HTMLInputElement>(document.getElementById("toggleBtn"))).checked = false;
   }
 
   toggle() {
+    (<HTMLInputElement>(document.getElementById("toggleBtn"))).checked = !this.isExpanded;
     this.isExpanded = !this.isExpanded;
+
+    if (this.isExpanded) {
+      document.getElementById("wrapper").style.paddingLeft = "305px";
+    } else {
+      document.getElementById("wrapper").style.paddingLeft = "15px";
+    }
   }
+
+
 }

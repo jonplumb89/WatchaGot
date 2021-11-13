@@ -43,6 +43,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\Models\Favorites.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Models\MyRecipes.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\Models\Recipe.ts" />
