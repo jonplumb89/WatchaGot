@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { User } from 'oidc-client';
 import { AuthorizeService } from '../../api-authorization/authorize.service';
 import { MyRecipes } from '../Models/MyRecipes';
-import { MyrecipesService } from '../Services/myrecipes.service';
+import { MyrecipesService } from '../myrecipes.service';
 
 @Component({
   selector: 'app-myrecipes',
