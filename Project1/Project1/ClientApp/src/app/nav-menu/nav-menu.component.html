@@ -1,17 +1,27 @@
 <body>
-  <nav>
-    <img class="logs" [routerLink]="['/']" src="../../assets/logo7.png" alt="logo" />
-    <a href="#" [routerLink]="['/']">Home</a>
-    <a href="#" [routerLink]="['/MyFavoriteRecipes']">Favorites</a>
-    <a href="#" [routerLink]="['/MyRecipes']">My Recipes</a>
-    <a href="#" [routerLink]="['/Recipe']">Search Recipies</a>
-    <a href="#"></a>
-    <div id="login">
-      <app-login-menu></app-login-menu>
+  <div class="menu-wrap">
+    <input type="checkbox" class="toggler" id="toggleBtn" (click)="toggle()"/>
+    <div class="hamburger"><div></div></div>
+    <div class="menu">
+      <div>
+        <div>
+          <nav>
+            <ul>
+              <img class="logs" [routerLink]="['/']" src="../../assets/logo7.png" alt="logo" />
+              <li><a href="#" (click)="toggle()" [routerLink]="['/']">Home</a></li>
+              <li><a href="#" (click)="toggle()" [routerLink]="['/MyFavoriteRecipes']">Favorites</a></li>
+              <li><a href="#" (click)="toggle()" [routerLink]="['/MyRecipes']">My Recipes</a></li>
+              <li><a href="#" (click)="toggle()" [routerLink]="['/Recipe']">Search Recipes</a></li>
+            </ul>
+
+          </nav>
+        </div>
+      </div>
+      <span id="appLogin">
+        <app-login-menu></app-login-menu>
+      </span>
     </div>
-  </nav>
-  <main>
-  </main>
+  </div>
 </body>
 
 

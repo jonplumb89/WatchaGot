@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,8 +18,6 @@ namespace Project1.Controllers
 
 
         private UserManager<ApplicationUser> _userManager;
-
-
 
 
         public MyFavoriteRecipesController(recipefinderContext context, UserManager<ApplicationUser> userManager)
@@ -90,12 +88,26 @@ namespace Project1.Controllers
 
         // POST: api/MyFavoriteRecipes
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        //[HttpPost]
+        //public async Task<ActionResult<MyFavoriteRecipe>> PostMyFavoriteRecipe(MyFavoriteRecipe myFavoriteRecipe)
+        //{
+        //    //var user = _context.AspNetUsers.FirstOrDefault(x => x.UserName == myFavoriteRecipe.UserId);
+
+        //    //myFavoriteRecipe.UserId = user.Id;
+
+        //    _context.MyFavoriteRecipes.Add(myFavoriteRecipe);
+        //    await _context.SaveChangesAsync();
+
+        //    return CreatedAtAction("GetMyFavoriteRecipe", new { id = myFavoriteRecipe.FavoritesId }, myFavoriteRecipe);
+        //}
         [HttpPost]
-        public async Task<ActionResult<MyFavoriteRecipe>> PostMyFavoriteRecipe(MyFavoriteRecipe myFavoriteRecipe)
+        public async Task<ActionResult<MyFavoriteRecipe>> PostMyFavoriteRecipeByUser(RecipeUserName myFavoriteRecipe)
         {
-            var user = _context.AspNetUsers.FirstOrDefault(x => x.UserName == myFavoriteRecipe.UserId);
+
+            var user = _context.AspNetUsers.FirstOrDefault(x => x.UserName == myFavoriteRecipe.UserName);
 
             myFavoriteRecipe.UserId = user.Id;
+
             _context.MyFavoriteRecipes.Add(myFavoriteRecipe);
             await _context.SaveChangesAsync();
 

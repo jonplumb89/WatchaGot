@@ -21,6 +21,7 @@ export class MyrecipesService {
   getMyRecipesByUser() {
     this.authorizeService.getUser()
       .subscribe(user => this.name = user.name)
+    console.log(this.apiUrl + this.name)
     return this.httpClient.get<MyRecipes[]>(this.apiUrl + this.name);
   }
 

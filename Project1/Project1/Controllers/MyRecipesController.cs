@@ -30,6 +30,8 @@ namespace Project1.Controllers
             return await _context.MyRecipes.ToListAsync();
         }
 
+
+
         [HttpGet("{userName}")]
         public async Task<ActionResult<IEnumerable<MyRecipe>>> GetMyRecipes(string username)
         {
@@ -37,6 +39,8 @@ namespace Project1.Controllers
 
             return await _context.MyRecipes.Where(x => x.UserId == user.Id).ToListAsync();
         }
+
+
 
         // GET: api/MyRecipes/5
         //[HttpGet("{id}")]

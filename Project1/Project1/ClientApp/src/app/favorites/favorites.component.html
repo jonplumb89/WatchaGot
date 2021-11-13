@@ -1,24 +1,42 @@
+<!--<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="favorites">
+  <thead>
+    <tr>
+      <th><b>Recipe Title</b></th>
+      <th><b>Time</b></th>
+      <th><b>Summary</b></th>
+      <th><b>Servings</b></th>
+      <th><b>Instructions</b></th>
+      <th><b>Ingredients</b></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let favorite of favorites">
+      <td>{{ favorite.title }}</td>
+      <td>{{ favorite.readyInMinutes }}</td>
+      <td>{{ favorite.summary }}</td>
+      <td>{{ favorite.servings }}</td>
+      <td>{{ favorite.instructions }}</td>
+      <td>{{ favorite.ingredients }}</td>
+      <td><button (click)="deleteFavoriteRecipe(favorite.favoritesId)" class="btn-primary btn">Delete</button></td>
+    </tr>
+  </tbody>
+</table>-->
 
-  <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="favorites">
-    <thead>
-      <tr>
-        <th><b>Recipe Title</b></th>
-        <th><b>Time</b></th>
-        <th><b>Summary</b></th>
-        <th><b>Servings</b></th>
-        <th><b>Instructions</b></th>
-        <th><b>Ingredients</b></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let favorite of favorites">
-        <td>{{ favorite.title }}</td>
-        <td>{{ favorite.readyInMinutes }}</td>
-        <td>{{ favorite.summary }}</td>
-        <td>{{ favorite.servings }}</td>
-        <td>{{ favorite.instructions }}</td>
-        <td>{{ favorite.ingredients }}</td>
-      </tr>
-    </tbody>
+
+<div class="body">
+  <h3 class="favTitle">Your Favorite Recipies</h3>
+  <tbody class="mainBody">
+    <tr *ngFor="let favorite of favorites" class="stuffBox">
+      <td class="resItem">
+        <div class="card">
+          <div class="card-header">{{ favorite.title }}</div>
+          <div class="card-body" >
+           </div>
+      <td class="btnBox">
+        <button type="button"
+  class="btn btn-outline-danger btn-rounded"
+  data-mdb-ripple-color="dark" (click)="deleteFavoriteRecipe(favorite.favoritesId)" id="deleteBtn">Delete</button>
+      </td>
+</div>
 
 

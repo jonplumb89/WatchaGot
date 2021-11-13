@@ -1,85 +1,33 @@
 body {
-  margin-left: 250px;
   position: relative;
+  background: url(../../assets/homeFood2.jpg) no-repeat;
+  background-size: cover;
+  height: 100vh;
 }
 
-.lp1 {
-  margin: 20px;
-  width: 25em;
+.lp1 > img {
+  width: 390px;
+  box-shadow: 13px 13px rgba(0, 0, 0, 0.2);
+  margin-top: 30px;
+  margin-bottom: 10px;
+  margin-left: 120px;
 }
 
-/*.container {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  text-align: center;
-}*/
+#wrapper {
+    padding-left: 15px;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-/*@media (min-width: 992px) {
-  body {
-    margin-left: 250px;
-    position: relative;
-  }
-
-  .lp1 {
-    margin: 20px;
-    width: 400px;
-  }
-
-  .container {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    text-align: center;
-  }
-
-}*/
-/*===============================================*/
-
-/*@media (min-width: 768px) {
-  body {
-    margin-left: 250px;
-    position: relative;
-  }
-
-  .lp1 {
-    margin: 20px;
-    width: 20em;
-  }
-
-  .container {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    text-align: center;
-  }
+#wrapper > div {
+    flex: 1 0 21%;
+}
 
 
-}*/
 
 
-/*============================================*/
-
-
-/*@media (min-width: 576px) {
-  body {
-    margin-left: 250px;
-    position: relative;
-  }
-
-  .lp1 {
-    margin: 20px;
-    width: 20em;
-  }
-
-  .container {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    text-align: center;
-  }
-
-}*/
 
 
 

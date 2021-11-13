@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FavoritesService } from '../favorites.service';
 import { Favorites } from '../Models/Favorites';
+import { Recipe } from '../Models/Recipe';
 
 @Component({
   selector: 'app-favorites',
@@ -10,6 +11,7 @@ import { Favorites } from '../Models/Favorites';
 export class FavoritesComponent implements OnInit {
 
   favorites: Favorites[];
+  //recipes: Recipe[] = null;
 
   constructor(private favoriteService: FavoritesService) { this.favoriteService = favoriteService }
 
@@ -18,6 +20,12 @@ export class FavoritesComponent implements OnInit {
       .subscribe(result => {
         this.favorites = result;
       })
+  }
+
+  deleteFavoriteRecipe(recipeId: number) {
+    this.favoriteService.deleteFavoriteRecipe(recipeId).subscribe(() => {
+      this.ngOnInit();
+    })
   }
 
 }

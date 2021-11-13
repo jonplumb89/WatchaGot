@@ -1,26 +1,119 @@
 <body>
-  <div class="boxOne">
-    <span class="meow">
-      <div class="recSearch">
-        <h2>Whatcha Got Homie:</h2>
-        <input (keyup.enter)="bang(thing.value)" [(ngModel)]="in_food" type="text" #thing class="myBox" />
-        <button (click)="bang(thing.value)" class="myButt">Add</button><br />
+  <div id="container">
+    <div class="bottomPic">
+      <div class="everythingBox">
+        <div class="boxOne">
+          <span class="meow">
+            <div class="recSearch">
+              <h2>
+                Choose the <br />
+                <strong>Food You Got</strong>
+              </h2>
+              <input (keyup.enter)="bang(thing.value)" [(ngModel)]="in_food" type="text" #thing class="myBox" />
+              <br />
+              <button (click)="bang(thing.value)" class="myButt">Add</button><br />
+            </div>
+          </span>
+
+
+          <div class="recSearch">
+            <p class="howMany"><b>Choose how Many Recipes to Show</b></p>
+
+            <ul class="donate-now">
+              <li>
+                <input type="radio" id="a25" name="amount" [(ngModel)]="sAmount" value="10" />
+                <label class="amountButton" for="a25">10</label>
+              </li>
+              <li>
+                <input type="radio" id="a50" name="amount" [(ngModel)]="sAmount" value="20" />
+                <label class="amountButton" for="a50">20</label>
+              </li>
+              <li>
+                <input type="radio" id="a75" name="amount" checked="checked" [(ngModel)]="sAmount" value="30" />
+                <label class="amountButton" for="a75">30</label>
+              </li>
+              <li>
+                <input type="radio" id="a100" name="amount" [(ngModel)]="sAmount" value="40" />
+                <label class="amountButton" for="a100">40</label>
+              </li>
+              <li>
+                <input type="radio" id="other" name="amount" [(ngModel)]="sAmount" value="50" />
+                <label class="amountButton" for="other">50</label>
+              </li>
+            </ul>
+
+            <br />
+            <div id="finButton1">
+              <button (click)="submitList()" class="sButts2" id="finButton">SUBMIT</button>
+            </div>
+          </div>
+
+        </div>
+
       </div>
-    </span>
 
+      <div class="foods-container">
+        <tbody class="flex-container">
+          <tr *ngFor="let food of foods; let i = index">
+            <td><button id="byeFood" (click)="delete(food)"></button>{{food}}</td>
+          </tr>
+        </tbody>
+      </div>
 
-    <div class="sButts">
-      <button (click)="submitList()" class="sButts">submit</button>
+      <span *ngIf="recipes">
+        <div class="recipeBox">
+          <tbody class="recList" *ngIf="recipes">
 
-      <p class="howMany"><u><b>How many recipes you want:</b></u></p>
-      <input list="amount" type="text" [(ngModel)]="sAmount" class="numberBox">
-      <datalist id="amount">
-        <option value="10">
-        <option value="20">
-        <option value="30">
-        <option value="40">
-        <option value="50">
-      </datalist>
+            <tr *ngFor="let recipe of recipes; let i = index" (click)="getRecipe(recipe.id); " class="stuffBox">
+              <td class="resItem">
+                <img src="{{recipe.image}}" class="picBox" />
+                <br />
+                <span>
+                  <u><b>{{recipe.title}}</b></u>
+                  <br />
+                  <u *ngIf="recipe.missedIngredientCount > 0">
+                    missed ingredients: {{recipe.missedIngredientCount}}
+                  </u>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </div>
+      </span>
+
+      <div class="recipeSelectCard modalClose" *ngIf="recipeInfos" id="myModal" (click)="modalMode($event)">
+        <div class="card">
+          <span class="modalClose" id="modalCloseButton" (click)="modalMode($event)"></span>
+          <img class="card-img-top" src="{{recipeInfos.image}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">-{{recipeInfos.title}}-</h5>
+            <p><u><b>Cook Time:</b></u> {{recipeInfos.readyInMinutes}} minutes</p>
+            <p class="card-text">
+              <tbody *ngIf="recipeInfos">
+                <label><u>Ingredients:</u></label>
+                <tr *ngFor="let obj of extendIngreds; let i = index">
+                  <td class="ingreds">
+                    <span *ngIf="obj.aisle == 'Spices and Seasonings'">
+                      - {{obj.name}}
+                    </span>
+                    <span *ngIf="obj.aisle != 'Spices and Seasonings'">
+                      - {{obj.original}}
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody *ngIf="recipeInfos">
+                <tr>
+                  <u><b>Instructions:   </b></u>
+                  {{doit}}
+                </tr>
+              </tbody>
+            </p>
+            <button (click)="addFavorite(recipeInfos)" class="favoriteAdd">add favorite</button>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -130,15 +223,6 @@
     {{doit}}
   </tr>
 </tbody>
-=======
-
-  <tbody *ngIf="recipeInfos">
-    <tr>
-      <u><b>Instructions: </b></u>
-      {{doit}}
-    </tr>
-  </tbody>
-
 </body>
 
 

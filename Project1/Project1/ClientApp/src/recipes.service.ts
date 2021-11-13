@@ -31,11 +31,11 @@ export class RecipesService {
   }
 
   getRecipe(id: number) {
-    return this.httpClient.get<RecipeInfo>(`https://api.spoonacular.com/recipes/${id}/information?apiKey=3133ec68e1e64966beab5325e6a3ee21&includeNutrition=false`);
+    return this.httpClient.get<RecipeInfo>(`https://api.spoonacular.com/recipes/${id}/information?apiKey=3ad1ee3c2ad5442fbe2e4a7b72183b78&includeNutrition=false`);
   }
 
-  askRecipie() {
-    return this.httpClient.get<Recipe>(this.recipesURL);
-  }
+  //askRecipie() {
+  //  return this.httpClient.get<Recipe>(this.recipesURL);
+  //}
 
 }

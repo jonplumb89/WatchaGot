@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { RecipesService } from '../../recipes.service';
 import { FavoritesService } from '../favorites.service';
 import { Favorites } from '../Models/Favorites';
 import { Recipe, SedIngredient } from '../Models/Recipe';
 import { RecipeInfo } from '../Models/RecipeInfo';
+import { NavMenuComponent } from '../nav-menu/nav-menu.component';
 
 @Component({
   selector: 'app-recipe',
   templateUrl: './recipe.component.html',
   styleUrls: ['./recipe.component.css']
 })
+
 export class RecipeComponent implements OnInit {
   sourceUrl: string = "";
   recipes: Recipe[] = null;
@@ -21,17 +23,27 @@ export class RecipeComponent implements OnInit {
   in_food: any;
   sAmount: string = '';
   doit: string;
+  sizing: NavMenuComponent;
+
+  //@Input() closeHerUp = '';
+
+  //@HostListener()()
+
 
   get sanSourceUrl() {
     return this.sanatizer.bypassSecurityTrustResourceUrl(this.sourceUrl);
   }
 
   constructor(private recipeService: RecipesService, private sanatizer: DomSanitizer, private favoritesService: FavoritesService) {
-    this.recipeService = recipeService
+
+    this.recipeService = recipeService;
+
   }
 
   ngOnInit() {
+    (<HTMLInputElement>document.getElementById("toggleBtn")).checked = false;
   }
+
 
   removeCh(str) {
     if ((str === null) || (str === ''))
@@ -45,14 +57,15 @@ export class RecipeComponent implements OnInit {
 
   bang(food: string) {
     if (food.length == 0) return;
-    this.foods = this.foods.concat(food.split(/[\s,]+/).filter(x => !this.foods.includes(x)));
+    this.foods.push(food);
     this.in_food = '';
   }
 
-  submitList(sAmount: string) {
+
+  submitList() {
     let meow = this.foods.join(",");
     console.log(this.sAmount);
-    let url = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=3133ec68e1e64966beab5325e6a3ee21&number=" + this.sAmount;
+    let url = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=3ad1ee3c2ad5442fbe2e4a7b72183b78&number=" + this.sAmount;
     meow = "&ingredients=" + meow;
     this.recipeService.getRecipies(url + meow).subscribe(data => {
       this.recipes = data;
@@ -60,16 +73,25 @@ export class RecipeComponent implements OnInit {
     })
   }
 
-
-  getRecipe(id: number, data: Response) {
+  getRecipe(id: number) {
     this.recipeService.getRecipe(id).subscribe(data => {
       this.recipeInfos = data;
       this.extendIngreds = data.extendedIngredients;
       if (this.recipeInfos.instructions != null) {
-        this.doit = this.removeCh(this.recipeInfos.instructions)
+        this.doit = this.removeCh(this.recipeInfos.instructions);
       }
       console.log(this.recipeInfos);
+      // update and display modal
+      let x = (<ElementCSSInlineStyle>document.getElementById("myModal"));
+      if (x != null) x.style.display = 'block';
     })
+  }
+
+  modalMode($event) {
+    if ($event.target.classList.contains("modalClose")) {
+      let modal = (<ElementCSSInlineStyle>document.getElementById("myModal"));
+      if (modal != null) modal.style.display = "none";
+    }
   }
 
   delete(value: string) {
@@ -78,11 +100,10 @@ export class RecipeComponent implements OnInit {
       this.foods.splice(index, 1);
     }
   }
-  addFavorite(favorite: Favorites) {
-   
-    this.favoritesService.postMyFavoriteRecipe(favorite).subscribe()
 
-    //this a map favorite to favorite.ts
-    //then send favorite.ts at the model to API controller endpoint
+  addFavorite(favorite: Favorites) {
+    //console.log(favorite.extendedIngredients)
+    console.log(favorite);
+    this.favoritesService.postMyFavoriteRecipe(favorite).subscribe()
   }
 }
