@@ -65,7 +65,7 @@ export class RecipeComponent implements OnInit {
   submitList() {
     let meow = this.foods.join(",");
     console.log(this.sAmount);
-    let url = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=3ad1ee3c2ad5442fbe2e4a7b72183b78&number=" + this.sAmount;
+    let url = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=6d824812b91b45929944784ade2c9453&number=" + this.sAmount;
     meow = "&ingredients=" + meow;
     this.recipeService.getRecipies(url + meow).subscribe(data => {
       this.recipes = data;

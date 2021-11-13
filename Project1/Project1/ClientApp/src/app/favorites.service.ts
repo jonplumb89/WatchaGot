@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/internal/Observable';
 import { Observable } from 'rxjs';
 import { AuthorizeService } from '../api-authorization/authorize.service';
 import { Favorites } from './Models/Favorites';
