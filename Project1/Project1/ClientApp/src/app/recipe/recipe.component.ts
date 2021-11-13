@@ -78,9 +78,7 @@ export class RecipeComponent implements OnInit {
       if (this.recipeInfos.instructions != null) {
         this.doit = this.removeCh(this.recipeInfos.instructions);
       }
-
       console.log(this.recipeInfos);
-
       // update and display modal
       let x = (<ElementCSSInlineStyle>document.getElementById("myModal"));
       if (x != null) x.style.display = 'block';
@@ -102,7 +100,8 @@ export class RecipeComponent implements OnInit {
   }
 
   addFavorite(favorite: Favorites) {
-    console.log(favorite.extendedIngredients)
+    //console.log(favorite.extendedIngredients)
+    console.log(favorite);
     this.favoritesService.postMyFavoriteRecipe(favorite).subscribe()
   }
 }
