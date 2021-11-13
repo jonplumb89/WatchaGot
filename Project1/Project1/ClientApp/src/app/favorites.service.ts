@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
 import { Observable } from 'rxjs';
 import { AuthorizeService } from '../api-authorization/authorize.service';
 import { Favorites } from './Models/Favorites';
+import { MyRecipes } from './Models/MyRecipes';
 
 @Injectable({
   providedIn: 'root'
@@ -49,6 +51,7 @@ export class FavoritesService {
   postMyFavoriteRecipe(favorite: Favorites): Observable<Favorites> {
     this.authorizeService.getUser()
       .subscribe(user => this.name = user.name)
+    
     favorite.ingredients = this.extractIngredients(favorite)
     console.log(favorite.extendedIngredients);
     this.recId = favorite.id;

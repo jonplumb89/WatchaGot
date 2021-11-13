@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -103,6 +103,7 @@ namespace Project1.Controllers
         [HttpPost]
         public async Task<ActionResult<MyFavoriteRecipe>> PostMyFavoriteRecipeByUser(RecipeUserName myFavoriteRecipe)
         {
+
             var user = _context.AspNetUsers.FirstOrDefault(x => x.UserName == myFavoriteRecipe.UserName);
 
             myFavoriteRecipe.UserId = user.Id;

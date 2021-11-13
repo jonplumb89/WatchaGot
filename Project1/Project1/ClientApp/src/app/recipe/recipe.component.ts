@@ -35,7 +35,9 @@ export class RecipeComponent implements OnInit {
   }
 
   constructor(private recipeService: RecipesService, private sanatizer: DomSanitizer, private favoritesService: FavoritesService) {
+
     this.recipeService = recipeService;
+
   }
 
   ngOnInit() {
