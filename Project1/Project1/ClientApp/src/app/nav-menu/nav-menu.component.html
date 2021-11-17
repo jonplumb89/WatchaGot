@@ -1,40 +1,27 @@
 <body>
+
   <div class="menu-wrap">
     <input type="checkbox" class="toggler" id="toggleBtn" (click)="toggle()"/>
     <div class="hamburger"><div></div></div>
     <div class="menu">
       <div>
         <div>
+
           <nav>
             <ul>
-              <img class="logs" [routerLink]="['/']" src="../../assets/logo7.png" alt="logo" />
+              <img class="logs" [routerLink]="['/']" src="../../assets/Watchagot_Logo_sm.png" alt="WatchaGot" />
               <li><a href="#" (click)="toggle()" [routerLink]="['/']">Home</a></li>
               <li><a href="#" (click)="toggle()" [routerLink]="['/MyFavoriteRecipes']">Favorites</a></li>
-              <li><a href="#" (click)="toggle()" [routerLink]="['/MyRecipes']">My Recipes</a></li>
-              <li><a href="#" (click)="toggle()" [routerLink]="['/Recipe']">Search Recipes</a></li>
+              <li><a href="#" (click)="toggle()" [routerLink]="['/MyRecipes']">Recipes</a></li>
+              <li><a href="#" (click)="toggle()" [routerLink]="['/Recipe']">Search</a></li>
             </ul>
-
           </nav>
+
         </div>
-      </div>
+        </div>
       <span id="appLogin">
         <app-login-menu></app-login-menu>
       </span>
     </div>
   </div>
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

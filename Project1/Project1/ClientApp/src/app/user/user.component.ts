@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'oidc-client';
-import { AspNetUserService } from '../asp-net-user.service';
+import { AspNetUserService } from '../Services/asp-net-user.service';
 import { AspNetUser } from '../Models/Users';
 
 @Component({

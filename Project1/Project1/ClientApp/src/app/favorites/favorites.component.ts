@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FavoritesService } from '../favorites.service';
+import { FavoritesService } from '../Services/favorites.service';
 import { Favorites } from '../Models/Favorites';
 import { Recipe } from '../Models/Recipe';
 
@@ -14,6 +14,8 @@ export class FavoritesComponent implements OnInit {
   //recipes: Recipe[] = null;
 
   constructor(private favoriteService: FavoritesService) { this.favoriteService = favoriteService }
+
+
 
   ngOnInit() {
     this.favoriteService.getMyFavoriteRecipesByUser()

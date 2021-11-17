@@ -22,10 +22,13 @@ export class NavMenuComponent {
 
     if (this.isExpanded) {
       document.getElementById("wrapper").style.paddingLeft = "305px";
-    } else {
-      document.getElementById("wrapper").style.paddingLeft = "15px";
+      if (this.isExpanded) {
+        document.getElementById("container").style.paddingLeft = "305px";
+      } else {
+        document.getElementById("wrapper").style.paddingLeft = "15px";
+      }
     }
+
+
   }
-
-
 }

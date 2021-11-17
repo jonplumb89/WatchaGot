@@ -149,11 +149,10 @@ body {
 .everythingBox {
   margin: 0 auto;
   background-size: cover;
-  background-image: url("../../assets/chickchicken.jpg");
+  background-image: url("../../assets/Recipe-background.jpg");
   display: block;
   height: 30em;
   border-bottom: 1px solid #333333;
-  box-shadow: 0 6px 6px rgba(0,0,0,0.5);
   margin-bottom: 40px;
 }
 

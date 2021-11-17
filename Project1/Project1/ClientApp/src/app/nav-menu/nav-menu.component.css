@@ -1,70 +1,65 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: sans-serif;
-}
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
 
   body {
     margin: 0;
+    background-color: red!important;
+    
   }
 
-img.logs {
-  width: 75%;
-  display: block;
-  margin-left: 35px;
-  margin-top: -15em;
-  margin-bottom: 35px;
-}
-
-.resizeB {
- 
-}
-
-li {
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  padding: 5px 15px;
-  font-size: 1.1em;
-  color: #222c6a;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-  li:hover {
-    background-color: #009879;
+  img.logs {
+    width: 75%;
+    display: block;
+    margin-left: 35px;
+    margin-top: -15em;
+    margin-bottom: 35px;
   }
 
-/* MENU STYLES */
-.menu-wrap {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 2;
-}
-.menu {
-    position: absolute;
-    margin-right: 250px;
-}
+  li {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 15px;
+  }
 
+  /*Menu text*/
 a {
-    color: #FFFFFF;
-    font: 20p;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin-bottom: .5em;
+  font-size: 20px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-bottom: .5em;
 }
 
-div.hamburger {
-  margin: 3px 3px 3px 3px;
-  margin-top: 10px;
-  margin-left: 10px;
-  border: 2px solid #FFFFFF;
-  background-color: #FF0036;
-  opacity: 85%;
-  border-radius: 30px;
-}
+  a:hover {
+    text-decoration: none !important;
+    color: #ffcc99;
+    font-weight: 700;
+    transition: all 0.4s ease;
+  }
+
+  /* MENU STYLES */
+  .menu-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+
+  .menu {
+    position: absolute;
+    margin-right: 300px;
+  }
+
+  div.hamburger {
+    margin: 3px 3px 3px 3px;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
 
   .menu-wrap .toggler {
     position: absolute;
@@ -77,21 +72,30 @@ div.hamburger {
     opacity: 0;
   }
 
-#appLogin {
+  #appLogin {
+    position: absolute;
+    bottom: 2em;
+    font-family: sans-serif;
+    text-align: center;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+#appLogin:hover {
   position: absolute;
   bottom: 2em;
   font-family: sans-serif;
   text-align: center;
-  color: #FFFFFF;
+  color: black;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
   .menu-wrap .hamburger {
-
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 10px;
+    left: 10px;
     z-index: 1;
     width: 60px;
     height: 60px;
@@ -101,13 +105,15 @@ div.hamburger {
     justify-content: center;
   }
 
+
+
     /* Hamburger Line */
     .menu-wrap .hamburger > div {
       position: relative;
       flex: none;
       width: 100%;
       height: 2px;
-      background: #fff;
+      background: white;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -167,29 +173,27 @@ div.hamburger {
   position: fixed;
   top: 0;
   left: 0;
-  width: 290px;
+  width: 325px;
   height: 100%;
   visibility: hidden;
-  background-color: #333333;
+  background: linear-gradient(24.79deg, #ff6787 0%, #ff0036 100%);
+  background-color: rgba(255,255,255,1.0);
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 3px solid #333332;
-  box-shadow: 0 6px 6px rgba(0,0,0,0.8);
   flex-direction: column;
 }
 
-    .menu-wrap .menu > div {
-      background: #333333;
-      display: flex;
-      flex: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      transform: scale(0);
-      transition: all 0.4s ease;
-    }
+  .menu-wrap .menu > div {
+    background: none;
+    display: flex;
+    flex: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: slide-out 5s forwards;
+  }
 
       .menu-wrap .menu > div > div {
         text-align: center;
@@ -199,7 +203,6 @@ div.hamburger {
 
         .menu-wrap .menu > div > div > ul > li {
           list-style: none;
-
           top: 0;
           display: inline-block;
           text-decoration: none;
@@ -215,4 +218,3 @@ div.hamburger {
             text-decoration: none;
             transition: color 0.4s ease;
           }
-

@@ -14,10 +14,10 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
 import { RecipeComponent } from './recipe/recipe.component';
 import { RecipesService } from '../recipes.service';
 import { FavoritesComponent } from './favorites/favorites.component';
-
 import { UserComponent } from './user/user.component';
-
 import { MyrecipesComponent } from './myrecipes/myrecipes.component';
+
+
 
 
 
@@ -30,12 +30,10 @@ import { MyrecipesComponent } from './myrecipes/myrecipes.component';
     FetchDataComponent,
     RecipeComponent,
     FavoritesComponent,
-
     UserComponent,
-
-    MyrecipesComponent
-
+    MyrecipesComponent,
   ],
+
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
@@ -50,6 +48,7 @@ import { MyrecipesComponent } from './myrecipes/myrecipes.component';
       { path: 'Recipe', component: RecipeComponent}
     ])
   ],
+
   providers: [RecipesService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
   ],
