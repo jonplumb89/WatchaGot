@@ -72,11 +72,6 @@ export class MyrecipesComponent implements OnInit {
     })
   }
 
-  //editFavorite($event: any, recipieId) {
-  //  console.log($event.target.id);
-  //    this.editRec = !this.editRec;
-  //}
-
   enableEditMethod(e, i) {
     this.enableEdit = !this.enableEdit;
     this.enableEditIndex = i;
@@ -85,42 +80,5 @@ export class MyrecipesComponent implements OnInit {
     console.log(this.thingI);
     return i
   }
-
-
 }
-
-  //addRecipes(
-  //  title: string, readyInMinutes: number, summary: string, servings: number, instructions: string, ingredients: string
-  //) {
-  //  let myrecipe = new MyRecipes();
-  //  this.userAuthService.getUser().subscribe(user => {
-  //    myrecipe.userId = this.userAuthService.user.name;
-  //    myrecipe.title = title;
-  //    myrecipe.readyInMinutes = readyInMinutes;
-  //    myrecipe.summary = summary;
-  //    myrecipe.servings = servings;
-  //    myrecipe.instructions = instructions;
-  //    myrecipe.ingredients = ingredients;
-
-  //    this.myRecipeService.PostMyRecipe(myrecipe)
-  //      .subscribe(() => {
-  //        //logging here
-  //        this.router.navigateByUrl('/MyRecipes')
-  //      }, (error: Response) => {
-  //        if (error.status === 404) {
-  //          console.log('Not Found');
-  //          alert('Not Found');
-  //        }
-
-  //        if (error.status === 500) {
-
-  //        }
-  //        console.log(myrecipe);
-  //      });
-
-  //  });
-
-  //}
-  //}
-
 
