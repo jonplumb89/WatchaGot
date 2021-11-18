@@ -1,17 +1,24 @@
-<div class="body" id="wrapper">
-  <h3 class="favTitle">Your Favorite Recipies</h3>
-  <tbody class="mainBody">
-    <tr *ngFor="let favorite of favorites" class="stuffBox">
-      <td class="resItem">
-        <div class="card">
-          <div class="card-header">{{ favorite.title }}</div>
-          <div class="card-body" >
-           </div>
-      <td class="btnBox">
-        <button type="button"
-  class="btn btn-outline-danger btn-rounded"
-  data-mdb-ripple-color="dark" (click)="deleteFavoriteRecipe(favorite.favoritesId)" id="deleteBtn">Delete</button>
-      </td>
-</div>
-
-
+<div class="body">
+  <div id="container">
+    <!--<div class="bottomPic">-->
+    <div class="everythingBox">
+      <div class="boxOne">
+        <h3 class="favTitle">Your Favorite Recipes</h3>
+        <tbody class="mainBody">
+          <tr *ngFor="let favorite of favorites" class="stuffBox">
+            <td class="resItem">
+              <div class="card">
+                <div class="card-header">{{ favorite.title }}</div>
+                <div class="card-body">
+                  <p><strong>Cook Time:  {{favorite.readyInMinutes}}</strong></p>
+                  <p><strong>ingredients:  {{favorite.ingredients}}</strong></p>
+                  <p><strong>Instructions:  {{favorite.instructions}}</strong></p>
+                </div>
+            <td class="btnBox">
+              <button type="button"
+                      class="deleteBtn"
+                      data-mdb-ripple-color="dark" (click)="deleteFavoriteRecipe(favorite.favoritesId)" id="deleteBtn">
+                Delete
+              </button>
+            </td>
+      </div>

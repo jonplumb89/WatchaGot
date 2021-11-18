@@ -1,20 +1,33 @@
 #useruser {
-  font-size: .7em;
-  margin-bottom: -2em;
+  font-size: 20px;
 }
 
 #theThing:hover {
-  background-color: #009879;
+  text-decoration: none !important;
+  color: #ffcc99;
+  font-weight: 700;
+  transition: all 0.4s ease;
 }
 
 a#theThing.nav-link {
-    color: #FFFFFF;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin-bottom: -10px;
+  color: #FFFFFF;
+  font-size: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 a#theThing2.nav-link {
   color: #FFFFFF;
+  font-size: 20px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  margin-top: -10px;
 }
+
+.navbar-nav .nav-link{
+    color: white;
+}
+
+  .navbar-nav .nav-link:hover {
+    text-decoration: none !important;
+    color: #ffcc99;
+    font-weight: 700;
+    transition: all 0.4s ease;
+  }
