@@ -15,7 +15,7 @@
   width: 80%;
   margin-left: 10%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   justify-content: center;
   text-align: center;
   height: 60%;
@@ -24,7 +24,6 @@
 .stuffBox {
   text-align: center;
   padding: 5px 5px 5px 5px;
-  width: 100%;
   justify-content: center;
   margin-left: 10%;
   height: 100%;
@@ -42,23 +41,20 @@
 }
 
   .resItem:hover {
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-        rgba(0, 0, 0, 0.12) 0px -12px 30px,
-        rgba(0, 0, 0, 0.12) 0px 4px 6px,
-        rgba(0, 0, 0, 0.17) 0px 12px 13px,
-        rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    background-color: #E5E5E9;
   }
-  
-  .card {
-    margin: 5px;
-    border: 1px solid #0c0c0c;
-    padding: 2px 2px 2px 2px;
-    border-radius: 30px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #0c0c0c;
-    width: auto;
-    height: auto;
-  }
+
+.card {
+  margin: 5px;
+  border: 1px solid #0c0c0c;
+  padding: 2px 2px 2px 2px;
+  border-radius: 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #0c0c0c;
+  width: auto;
+  height: auto;
+}
 
 .card-header {
   height: 80px;
@@ -72,7 +68,7 @@
 
 .card-body {
   width: 80%;
-  height: 8em;
+  height: auto;
   padding: 0;
   justify-content: center;
   text-align: left;
@@ -86,7 +82,6 @@
 }
 
 .card-text {
-
 }
 
 .btnBox {
@@ -100,15 +95,10 @@
 }
 
 #deleteBtn {
-    align-content:center;
-    width: 50%;
-    margin-top: 1em;
+  align-content: center;
+  width: 50%;
+  margin-top: 1em;
 }
 
 recBtn {
-    
 }
-
-
-
-
